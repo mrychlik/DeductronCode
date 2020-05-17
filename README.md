@@ -1,5 +1,7 @@
 # DeductronCode
-Computer codes accompanying the paper "Deductron - A Recurrent Neural Network"
+Computer codes accompanying the paper "Deductron - A Recurrent Neural Network".
+This is a minimalistic implementation. This code should not be used in
+any "production" system.
 
 
 # Pure Python Deductron implementation
