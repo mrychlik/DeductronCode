@@ -11,6 +11,7 @@ from rychlik.deductron_pkg.test_metropolis_learning import *
 
 test_learning();
 
+from rychlik.deductron_tf import *
 
 
 
