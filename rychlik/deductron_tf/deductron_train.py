@@ -45,8 +45,8 @@ with tf.name_scope("classify_inputs"):
     inputs  = tf.constant(_inputs,  tf.float32, name="inputs")
     targets = tf.constant(_targets, tf.float32, name="targets")
     n_frames = inputs.shape[1]
-    W1 = tf.Variable(initial_value =np.random.rand(2*n_memory, input_len), name="W1");
-    B1 = tf.Variable(initial_value =np.random.rand(2*n_memory, 1), name="B1");
+    W1 = tf.Variable(initial_value =np.random.rand(2*n_memory, input_len), name="W1",dtype=tf.float32);
+    B1 = tf.Variable(initial_value =np.random.rand(2*n_memory, 1), name="B1",dtype=tf.float32);
     h = tf.sigmoid(  tf.matmul(W1, inputs) + B1 )
     [left,right] = tf.split(h, num_or_size_splits=2, axis=0)
     prod = tf.multiply(left, right) #Hadamard product
@@ -63,8 +63,8 @@ with tf.name_scope("memory"):
         z = tf.stack(zlst, axis = 1)
 
 with tf.name_scope("output"):
-    W2 = tf.Variable("W2", shape = [output_len, n_memory], dtype = tf.float32)
-    B2 = tf.Variable("B2", shape = [output_len, 1], dtype = tf.float32)
+    W2 = tf.Variable(initial_value =np.random.rand(output_len, n_memory), name="W2",dtype=tf.float32);
+    B2 = tf.Variable(initial_value =np.random.rand(output_len, 1), name="B2",dtype=tf.float32);
     out = 1.0 - tf.sigmoid( tf.matmul(W2, z ) + B2)
     #loss = -tf.reduce_mean(tf.log(out) * targets + tf.log(1.0 - out) * (1.0 - targets))
     diff = out-targets;
