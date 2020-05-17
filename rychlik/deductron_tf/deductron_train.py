@@ -47,7 +47,6 @@ with tf.name_scope("classify_inputs"):
     n_frames = inputs.shape[1]
     W1 = tf.Variable("W1", shape = (2*n_memory, input_len), dtype = tf.float32)
     B1 = tf.Variable("B1", shape = (2*n_memory, 1), dtype = tf.float32)
-    # Inverse temperature
     h = tf.sigmoid(  tf.matmul(W1, inputs) + B1 )
     [left,right] = tf.split(h, num_or_size_splits=2, axis=0)
     prod = tf.multiply(left, right) #Hadamard product
