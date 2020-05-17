@@ -14,7 +14,6 @@ test_comb_model_1()
 test_comb_model_2()
 
 from rychlik.deductron_pkg.test_metropolis_learning import *
-
 test_learning()
 
 
