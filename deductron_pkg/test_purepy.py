@@ -1,7 +1,7 @@
 import deductron_pkg.data
 import deductron_pkg.annealing_test
 
-def annealing_test(inputs, targets):
+def _annealing_test(inputs, targets):
     net, loss = QuantizedDeductron.train(
         3, inputs, targets, beta_incr = 0.00001)
     print(str(net))
@@ -10,5 +10,5 @@ def annealing_test(inputs, targets):
 
 
 def test_answer():
-    annealing_test(small_inputs, small_targets)
+    _annealing_test(small_inputs, small_targets)
     assert 0 == 0
