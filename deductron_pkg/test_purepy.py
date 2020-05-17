@@ -1,4 +1,4 @@
-import deductron_pkg.data
+from . data import small_inputs, small_targets
 import deductron_pkg.QuantizedDeductron
 
 def _annealing_test(inputs, targets):
