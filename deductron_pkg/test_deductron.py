@@ -16,10 +16,11 @@ def _test_template(nn, inputs, targets, descr):
     print(descr + " sample loss: ", nn(inputs).loss(targets).round(n_digits))
 
 def _test_net_template(nn, scope):
-    _test_template(nn, tiny_inputs,  tiny_targets,  "Tiny");
-    _test_template(nn, small_inputs, small_targets, "Small");
-    _test_template(nn, large_inputs, large_targets, "Large");
-    _test_template(nn, comb_inputs,  comb_targets,  "Combined");
+    print("Model scope: " + scope)
+    _test_template(nn, tiny_inputs,  tiny_targets,  "Tiny")
+    _test_template(nn, small_inputs, small_targets, "Small")
+    _test_template(nn, large_inputs, large_targets, "Large")
+    _test_template(nn, comb_inputs,  comb_targets,  "Combined")
 
 def test_exact_model():
     nn = WLangDecoderExact()
