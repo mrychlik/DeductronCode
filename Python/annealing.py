@@ -3,7 +3,7 @@ import numpy as np
 import copy
 import random
 
-class QuantizedDeductron(deductron_base.DeductronBase):
+class QuantizedDeductron(DeductronBase):
 
     ADMISSIBLE_WEIGHTS = [-1,0,1]
     ADMISSIBLE_BIASES  = [0,1,2,3,4,5]
