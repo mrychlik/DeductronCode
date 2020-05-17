@@ -13,5 +13,6 @@ test_learning();
 
 from rychlik.deductron_tf import *
 
+run_graph_training();
 
 
