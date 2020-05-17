@@ -84,9 +84,9 @@ with tf.name_scope("output"):
 ################################################################
 
 # Create an optimizer with the desired parameters.
-#opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
+#opt = tf.compat.v1.train.GradientDescentOptimizer(learning_rate=0.5)
 opt = tf.compat.v1.train.AdamOptimizer(learning_rate=0.001)
-#opt = tf.train.AdagradOptimizer(learning_rate=0.5)
+#opt = tf.compat.v1.train.AdagradOptimizer(learning_rate=0.5)
 
 #
 # Run the training
