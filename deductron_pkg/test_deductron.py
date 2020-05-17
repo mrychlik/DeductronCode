@@ -22,26 +22,26 @@ def _test_net_template(nn, scope):
     _test_template(nn, comb_inputs,  comb_targets,  "Combined sample loss:   ");
 
 def test_exact_model():
-    nn = WLangDecoderExact()    # Definitely always works
-    _test_net_template(nn);
+    nn = WLangDecoderExact()
+    _test_net_template(nn, "Exact model, always works");
     assert 0
 
 
 def test_large_model_1():
-    nn = WLangDecoderLargeModel1()    # Only works on large sample
-    _test_net_template(nn);
+    nn = WLangDecoderLargeModel1()    
+    _test_net_template(nn, "Only works on large sample");
     assert 0
 
 
 def test_comb_model_1():
-    nn = WLangDecoderCombModel1()    # Works except for tiny sample
-    _test_net_template(nn);
+    nn = WLangDecoderCombModel1()    
+    _test_net_template(nn, "Works except for tiny sample");
     assert 0
 
 
 def test_comb_model_2():
-    nn = WLangDecoderCombModel2()    # Works for all
-    _test_net_template(nn);
+    nn = WLangDecoderCombModel2()
+    _test_net_template(nn, "Works for all");
     assert 0
 
 
