@@ -17,4 +17,9 @@ The particular optimization scheme is Metropolis-Hastings.
 In folder rychlik/deductron_tf there is a Python script implementing Deductron RNN
 through Tensorflow. This folder has a single script.
 
-The run of the script
+The run of the script run.py leaves the Tenslorflow logs in folder
+logs, which can be analyzed with Tensorboard. Note that Tensorboard
+can be also run interactively on one's computer. Tensorboard starts a
+Web server which is used to observe the logs, and it produces a
+canonical graph of the loss function. This is the way to track
+learning progress.
