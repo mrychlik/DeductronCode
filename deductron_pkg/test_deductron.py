@@ -9,11 +9,9 @@ from . WLangDecoderCombModel2 import *
     #nn = WLangDecoderCombModel2()    # Works for all
 
 n_digits = 4
-def _testfun(nn, inputs, targets,descr):
+def _testfun(nn, inputs, targets, descr):
 
-    print(descr, nn(tiny_inputs).loss(
-        tiny_targets
-    ).round(n_digits))
+    print(descr, nn(inputs).loss(targets).round(n_digits))
     assert 1
 
 def test_answer():
