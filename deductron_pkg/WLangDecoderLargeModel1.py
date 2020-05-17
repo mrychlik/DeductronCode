@@ -1,19 +1,4 @@
-#
-# @file   deductron.py
-# @author Marek Rychlik <marek@cannonball.lan>
-# @date   Sun Jun 17 09:47:17 2018
-# 
-# @brief  A deductron simulator and examples
-# 
-# This simple implementation of a deductron simulator
-# uses numpy in class DeductronBase. Subsequently
-# several concrete weight/bias combinations are provided
-# as found by Tensorflow with different training sets.
-#
-
-import numpy as np
 from . DeductronBase import DeductronBase
-from . data    import *                # For sample inputs
 
 class WLangDecoderLargeModel1(DeductronBase):  
     ''' Deductron trained on a 'stretched' sample of length 518. '''
