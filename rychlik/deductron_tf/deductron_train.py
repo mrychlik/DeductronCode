@@ -65,8 +65,10 @@ with tf.name_scope("memory"):
         z = tf.stack(zlst, axis = 1)
 
 with tf.name_scope("output"):
-    W2 = tf.Variable(initial_value =np.random.rand(output_len, n_memory), name="W2",dtype=tf.float32);
-    B2 = tf.Variable(initial_value =np.random.rand(output_len, 1), name="B2",dtype=tf.float32);
+    W2 = tf.get_variable("W2", shape = [output_len, n_memory],
+                         dtype = tf.float32)
+    B2 = tf.get_variable("B2", shape = [output_len, 1],
+                         dtype = tf.float32)
     out = 1.0 - tf.sigmoid( tf.matmul(W2, z ) + B2)
     #loss = -tf.reduce_mean(tf.log(out) * targets + tf.log(1.0 - out) * (1.0 - targets))
     diff = out-targets;
