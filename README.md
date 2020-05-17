@@ -13,7 +13,6 @@ In folder rychlik/deductron_pkg one finds a pure Python implementation of the De
 The learning scheme is discrete state space optimization.
 The particular optimization scheme is Metropolis-Hastings.
 
-
 # Deductron implementation using Tensorflow
 In folder deductron_tf there is a Python script implementing Deductron RNN
 through Tensorflow. This folder has a single script.
