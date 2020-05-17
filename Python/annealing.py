@@ -142,7 +142,7 @@ class QuantizedDeductron(DeductronBase):
             net.beta += beta_incr
         return (net_best, E_best)
 
-import data
+import . data
 
 def test_annealing(inputs, targets):
     net, loss = QuantizedDeductron.train(
