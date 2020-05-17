@@ -91,6 +91,7 @@ def define_graph():
 ################################################################
 
 def run_training():
+    define_graph()
     # Create an optimizer with the desired parameters.
     #opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
     opt = tf.train.AdamOptimizer(learning_rate=0.001)
