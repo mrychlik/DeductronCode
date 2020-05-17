@@ -18,8 +18,6 @@ import io
 from datetime import datetime
 import rychlik.deductron_pkg.data as data # Where the training data are
 
-#tf.enable_eager_execution() 
-#tf.executing_eagerly()        # => True
 tf.disable_v2_behavior()
 
 # Get training data; should be numpy 2D arrays
