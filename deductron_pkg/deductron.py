@@ -13,7 +13,7 @@
 
 import numpy as np
 from . deductron_base import DeductronBase
-import data                     # For sample inputs
+from . data  import *                    # For sample inputs
 
 class WLangDecoderLargeModel1(DeductronBase):  
     ''' Deductron trained on a 'stretched' sample of length 518. '''
