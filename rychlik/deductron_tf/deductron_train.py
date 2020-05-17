@@ -79,14 +79,12 @@ def define_graph():
         loss = loss1  + eps1 * (loss2 + loss3) + eps2 * (loss4 + loss5)
     
     
-################################################################
-#
-#   Run the training
-#
-################################################################
+    ################################################################
+    #
+    #   Run the training
+    #
+    ################################################################
 
-def run_graph_training():
-    define_graph()
     # Create an optimizer with the desired parameters.
     #opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
     opt = tf.train.AdamOptimizer(learning_rate=0.001)
