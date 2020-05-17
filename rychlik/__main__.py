@@ -2,9 +2,9 @@ print('__file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file_
 import rychlik.deductron_pkg as ded
 
 
-# Run Tensorflow based trainint
-from rychlik.deductron_tf import *
-run_graph_training()
+# Run Tensorflow based training
+from rychlik.deductron_tf.deductron_train import *
+
 
 
 # from rychlik.deductron_pkg.test_deductron import *
