@@ -144,7 +144,7 @@ class QuantizedDeductron(DeductronBase):
 
 from . data import *
 
-def test_annealing(inputs, targets):
+def annealing_test(inputs, targets):
     net, loss = QuantizedDeductron.train(
         3, inputs, targets, beta_incr = 0.00001)
     print(str(net))
