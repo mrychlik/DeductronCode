@@ -39,7 +39,7 @@ class DeductronBase:
         #
         # Run input classifier
         #
-        h = self.sigmoid( self.W1 @ input + self.B1)
+        h = self.sigmoid( matmul( self.W1, input) + self.B1)
 
         #
         # Split neuron outputs into two groups
@@ -59,7 +59,7 @@ class DeductronBase:
         #
         # Classify memories
         #
-        self.out = 1.0 - self.sigmoid( matmul( self.W2, z) + self.B2 )
+        self.out = 1.0 - self.sigmoid( matmul( self.W2, z) + self.B2 )python 3 import from file
 
         return self
 
