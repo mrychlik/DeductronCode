@@ -22,7 +22,7 @@ def _test_net_template(nn):
     _test_template(nn, comb_inputs, comb_targets, "Large sample loss:   ");
 
 def test_exact_model():
-    nn = WLangDecoderExact()    # Only works on large sample
+    nn = WLangDecoderExact()    # Definitely always works
     _test_net_template(nn);
     assert 0
 
