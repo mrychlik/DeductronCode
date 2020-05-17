@@ -7,14 +7,14 @@ from rychlik.deductron_tf import *
 run_graph_training()
 
 
-from rychlik.deductron_pkg.test_deductron import *
-test_exact_model()
-test_large_model_1()
-test_comb_model_1()
-test_comb_model_2()
+# from rychlik.deductron_pkg.test_deductron import *
+# test_exact_model()
+# test_large_model_1()
+# test_comb_model_1()
+# test_comb_model_2()
 
-from rychlik.deductron_pkg.test_metropolis_learning import *
-test_learning()
+# from rychlik.deductron_pkg.test_metropolis_learning import *
+# test_learning()
 
 
 
