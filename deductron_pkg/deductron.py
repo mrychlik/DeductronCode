@@ -12,7 +12,7 @@
 #
 
 import numpy as np
-from deductron_pkg import deductron_base
+from . deductron_base import DeductronBase
 import data                     # For sample inputs
 
 class WLangDecoderLargeModel1(DeductronBase):  
