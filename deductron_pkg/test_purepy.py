@@ -6,8 +6,6 @@ def _annealing_test(inputs, targets):
     print(str(net))
     return (net, loss)
 
-
-
 def test_answer():
     _annealing_test(small_inputs, small_targets)
     assert 0 == 0
