@@ -1,4 +1,6 @@
 # Run Tensorflow based training
+
 def test_learning_tf():
-    exec(open("./deductron_train.py").read())
+    from rychlik.deductron_tf.deductron_train import *
+
 
