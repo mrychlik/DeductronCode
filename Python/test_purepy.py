@@ -1,4 +1,6 @@
 from . data import small_inputs, small_targets
 from . annealing import annealing_test
 
-annealing_test(small_inputs, small_targets)
+def test_answer():
+    annealing_test(small_inputs, small_targets)
+    assert 0 == 0
