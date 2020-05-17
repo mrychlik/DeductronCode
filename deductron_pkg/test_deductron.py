@@ -12,40 +12,30 @@ from . WLangDecoderCombModel2 import *
     #nn = WLangDecoderCombModel2()    # Works for all
 
 n_digits = 4
-def _testfun(nn, inputs, targets, descr):
+def _test_template(nn, inputs, targets, descr):
     print(descr, nn(inputs).loss(targets).round(n_digits))
 
-def test_exact_model():
-    nn = WLangDecoderExact()   # Definitely always works
+def _test_net_template(nn):
     _testfun(nn, tiny_inputs, tiny_targets, "Tiny sample loss:   ");
     _testfun(nn, small_inputs, small_targets, "Small sample loss:   ");
     _testfun(nn, large_inputs, large_targets, "Large sample loss:   ");
     _testfun(nn, comb_inputs, comb_targets, "Large sample loss:   ");
-    assert 0
 
 def test_large_model_1():
     nn = WLangDecoderLargeModel1()    # Only works on large sample
-    _testfun(nn, tiny_inputs, tiny_targets, "Tiny sample loss:   ");
-    _testfun(nn, small_inputs, small_targets, "Small sample loss:   ");
-    _testfun(nn, large_inputs, large_targets, "Large sample loss:   ");
-    _testfun(nn, comb_inputs, comb_targets, "Large sample loss:   ");
+    _test_net_template(nn);
     assert 0
 
 
 def test_comb_model_1():
     nn = WLangDecoderCombModel1()    # Works except for tiny sample
-    _testfun(nn, small_inputs, small_targets, "Small sample loss:   ");
-    _testfun(nn, large_inputs, large_targets, "Large sample loss:   ");
-    _testfun(nn, comb_inputs, comb_targets, "Large sample loss:   ");
+    _test_net_template(nn);
     assert 0
 
 
 def test_comb_model_2():
     nn = WLangDecoderCombModel2()    # Works for all
-    _testfun(nn, tiny_inputs, tiny_targets, "Tiny sample loss:   ");
-    _testfun(nn, small_inputs, small_targets, "Small sample loss:   ");
-    _testfun(nn, large_inputs, large_targets, "Large sample loss:   ");
-    _testfun(nn, comb_inputs, comb_targets, "Large sample loss:   ");
+    _test_net_template(nn);
     assert 0
 
 
