@@ -23,3 +23,5 @@ can be also run interactively on one's computer. Tensorboard starts a
 Web server which is used to observe the logs, and it produces a
 canonical graph of the loss function. This is the way to track
 learning progress.
+
+![Tensorboard screenshot](./images/Screenshot from 2020-05-17 14-21-54.png"Tensorboard view")
