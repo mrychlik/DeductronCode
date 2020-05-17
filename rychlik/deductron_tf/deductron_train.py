@@ -90,57 +90,58 @@ def define_graph():
 #
 ################################################################
 
-# Create an optimizer with the desired parameters.
-#opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
-opt = tf.train.AdamOptimizer(learning_rate=0.001)
-#opt = tf.train.AdagradOptimizer(learning_rate=0.5)
+def run_training():
+    # Create an optimizer with the desired parameters.
+    #opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
+    opt = tf.train.AdamOptimizer(learning_rate=0.001)
+    #opt = tf.train.AdagradOptimizer(learning_rate=0.5)
 
-#
-# Run the training
-#
-train = opt.minimize(loss)
-n_steps = 60000                 # Number of steps
-loss_threshold = 0.01           # Stop if loss < this value
+    #
+    # Run the training
+    #
+    train = opt.minimize(loss)
+    n_steps = 60000                 # Number of steps
+    loss_threshold = 0.01           # Stop if loss < this value
 
-date = datetime.now().isoformat() # Label for summaries
-tf.summary.scalar("loss-" + date, loss)
-write_op = tf.summary.merge_all()
+    date = datetime.now().isoformat() # Label for summaries
+    tf.summary.scalar("loss-" + date, loss)
+    write_op = tf.summary.merge_all()
 
-with tf.Session() as sess:
-    writer = tf.summary.FileWriter('logs', sess.graph)
-    init = tf.global_variables_initializer()
-    sess.run(init)
+    with tf.Session() as sess:
+        writer = tf.summary.FileWriter('logs', sess.graph)
+        init = tf.global_variables_initializer()
+        sess.run(init)
 
-    for step in range(n_steps):
-        #grads_and_vars = opt.compute_gradients(loss)
-        #new_grads_and_vars = grads_and_vars
-        #train = opt.apply_gradients(grads_and_vars)
-        #sess.run(step.assign_add(1))
-        sess.run(train)
-        loss_value = sess.run(loss)
-        loss1_value = sess.run(loss1)
-        if step % 100 == 0:
-            print("Step: ", step,
-                  "Loss: ", loss_value,
+        for step in range(n_steps):
+            #grads_and_vars = opt.compute_gradients(loss)
+            #new_grads_and_vars = grads_and_vars
+            #train = opt.apply_gradients(grads_and_vars)
+            #sess.run(step.assign_add(1))
+            sess.run(train)
+            loss_value = sess.run(loss)
+            loss1_value = sess.run(loss1)
+            if step % 100 == 0:
+                print("Step: ", step,
+                      "Loss: ", loss_value,
                       "Real Loss: ", loss1_value)
 
-        summary = sess.run(write_op)
-        writer.add_summary(summary, step)
-        writer.flush()
-        if loss1_value < loss_threshold:
-            print('*** Iteration stopped when loss < ',
-                  loss1_value)
-            break
+            summary = sess.run(write_op)
+            writer.add_summary(summary, step)
+            writer.flush()
+            if loss1_value < loss_threshold:
+                print('*** Iteration stopped when loss < ',
+                      loss1_value)
+                break
 
-    writer.close()
+        writer.close()
 
-    print("W1:\n{}".format(np.round(W1.eval(),2)))
-    print("B1:\n{}".format(np.round(B1.eval(),2)))
-    print("W2:\n{}".format(np.round(W2.eval(),2)))
-    print("B2:\n{}".format(np.round(B2.eval(),2)))
-    print("Outputs: {}".format(np.round(np.transpose(out.eval()),1)))    
-    print("Loss: {}".format(loss.eval()))
-    print("Real Loss: {}".format(loss1.eval()))
+        print("W1:\n{}".format(np.round(W1.eval(),2)))
+        print("B1:\n{}".format(np.round(B1.eval(),2)))
+        print("W2:\n{}".format(np.round(W2.eval(),2)))
+        print("B2:\n{}".format(np.round(B2.eval(),2)))
+        print("Outputs: {}".format(np.round(np.transpose(out.eval()),1)))    
+        print("Loss: {}".format(loss.eval()))
+        print("Real Loss: {}".format(loss1.eval()))
 
-    sess.close()
+        sess.close()
 
