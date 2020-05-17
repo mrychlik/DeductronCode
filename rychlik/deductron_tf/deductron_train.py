@@ -65,10 +65,8 @@ def define_graph():
             z = tf.stack(zlst, axis = 1)
 
     with tf.name_scope("output"):
-        W2 = tf.Variable("W2", shape = [output_len, n_memory],
-                         dtype = tf.float32)
-        B2 = tf.Variable("B2", shape = [output_len, 1],
-                             dtype = tf.float32)
+        W2 = tf.Variable("W2", shape = [output_len, n_memory], dtype = tf.float32)
+        B2 = tf.Variable("B2", shape = [output_len, 1], dtype = tf.float32)
         out = 1.0 - tf.sigmoid( tf.matmul(W2, z ) + B2)
         #loss = -tf.reduce_mean(tf.log(out) * targets
         #                       + tf.log(1.0 - out) * (1.0 - targets))
