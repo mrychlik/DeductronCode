@@ -24,4 +24,4 @@ Web server which is used to observe the logs, and it produces a
 canonical graph of the loss function. This is the way to track
 learning progress.
 
-![Tensorboard screenshot](./images/TensorboardScreenshot.png"Tensorboard view")
+![Tensorboard screenshot](./images/TensorboardScreenshot.png)
