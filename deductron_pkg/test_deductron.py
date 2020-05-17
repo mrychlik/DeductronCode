@@ -13,13 +13,13 @@ from . WLangDecoderCombModel2 import *
 
 n_digits = 4
 def _test_template(nn, inputs, targets, descr):
-    print(descr, nn(inputs).loss(targets).round(n_digits))
+    print(descr + " sample loss: ", nn(inputs).loss(targets).round(n_digits))
 
 def _test_net_template(nn, scope):
-    _test_template(nn, tiny_inputs,  tiny_targets,  "Tiny sample loss:   ");
-    _test_template(nn, small_inputs, small_targets, "Small sample loss:   ");
-    _test_template(nn, large_inputs, large_targets, "Large sample loss:   ");
-    _test_template(nn, comb_inputs,  comb_targets,  "Combined sample loss:   ");
+    _test_template(nn, tiny_inputs,  tiny_targets,  "Tiny");
+    _test_template(nn, small_inputs, small_targets, "Small");
+    _test_template(nn, large_inputs, large_targets, "Large");
+    _test_template(nn, comb_inputs,  comb_targets,  "Combined");
 
 def test_exact_model():
     nn = WLangDecoderExact()
