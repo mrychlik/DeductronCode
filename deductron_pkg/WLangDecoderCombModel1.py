@@ -2,7 +2,7 @@ import numpy as np
 from . DeductronBase import DeductronBase
 from . data    import *                # For sample inputs
 
-class WLangDecoderCombModel1(deductron_base.DeductronBase):  
+class WLangDecoderCombModel1(DeductronBase):  
     '''Deductron trained on combined 'small' and 'stretched' samples of
     total size 29 + 518.
 
