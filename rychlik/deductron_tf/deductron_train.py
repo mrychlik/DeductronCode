@@ -15,7 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 from datetime import datetime
-import rychlik.deductron_pkg.data   as data # Where the training data are
+import rychlik.deductron_pkg.data as data # Where the training data are
 
 #tf.enable_eager_execution() 
 #tf.executing_eagerly()        # => True
