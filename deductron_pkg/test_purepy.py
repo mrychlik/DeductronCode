@@ -1,5 +1,5 @@
 import deductron_pkg.data
-import deductron_pkg.annealing_test
+import deductron_pkg.QuantizedDeductron
 
 def _annealing_test(inputs, targets):
     net, loss = QuantizedDeductron.train(
