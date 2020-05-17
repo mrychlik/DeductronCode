@@ -6,6 +6,6 @@ def _annealing_test(inputs, targets):
     print(str(net))
     return (net, loss)
 
-def test_answer():
+def test_learning():
     _annealing_test(small_inputs, small_targets)
 
