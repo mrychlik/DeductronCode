@@ -3,7 +3,7 @@
 # @author Marek Rychlik <marek@cannonball.lan>
 # @date   Sun Jun 17 10:25:51 2018
 # 
-# @brief  Implements Deductron training using Tensorflow
+# @brief  Implements Deductron training using Tensorflow.
 # 
 #
 #
