@@ -25,19 +25,16 @@ def _test_net_template(nn, scope):
 def test_exact_model():
     nn = WLangDecoderExact()
     _test_net_template(nn, "Exact model, always works");
-    assert 0
 
 
 def test_large_model_1():
     nn = WLangDecoderLargeModel1()    
     _test_net_template(nn, "Only works on large sample");
-    assert 0
 
 
 def test_comb_model_1():
     nn = WLangDecoderCombModel1()    
     _test_net_template(nn, "Works except for tiny sample");
-    assert 0
 
 
 def test_comb_model_2():
