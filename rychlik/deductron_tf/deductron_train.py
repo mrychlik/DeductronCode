@@ -46,9 +46,9 @@ def define_graph():
         inputs  = tf.constant(_inputs,  tf.float32, name="inputs")
         targets = tf.constant(_targets, tf.float32, name="targets")
         n_frames = inputs.shape[1]
-        W1 = tf.get_variable("W1", shape = [2*n_memory, input_len],
+        W1 = tf.Variable("W1", shape = [2*n_memory, input_len],
                              dtype = tf.float32)
-        B1 = tf.get_variable("B1", shape = [2*n_memory, 1],
+        B1 = tf.Variable("B1", shape = [2*n_memory, 1],
                              dtype = tf.float32)
         # Inverse temperature
         h = tf.sigmoid(  tf.matmul(W1, inputs) + B1 )
@@ -67,9 +67,9 @@ def define_graph():
             z = tf.stack(zlst, axis = 1)
 
     with tf.name_scope("output"):
-        W2 = tf.get_variable("W2", shape = [output_len, n_memory],
+        W2 = tf.Variable("W2", shape = [output_len, n_memory],
                          dtype = tf.float32)
-        B2 = tf.get_variable("B2", shape = [output_len, 1],
+        B2 = tf.Variable("B2", shape = [output_len, 1],
                              dtype = tf.float32)
         out = 1.0 - tf.sigmoid( tf.matmul(W2, z ) + B2)
         #loss = -tf.reduce_mean(tf.log(out) * targets
