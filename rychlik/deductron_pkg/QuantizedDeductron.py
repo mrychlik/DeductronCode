@@ -1,4 +1,4 @@
-from . DeductronBase import DeductronBase
+import DeductronBase
 import numpy as np
 import copy
 import random
