@@ -35,13 +35,14 @@ output_len = 2                  # Output frame size
 assert(_inputs.shape[0] == input_len)
 assert(_targets.shape[0] == output_len)
 
-################################################################
-#
-#   Define the graph
-#
-################################################################
+def run_graph_training():
 
-def define_graph():
+    ################################################################
+    #
+    #   Define the graph
+    #
+    ################################################################
+
     with tf.name_scope("classify_inputs"):
         inputs  = tf.constant(_inputs,  tf.float32, name="inputs")
         targets = tf.constant(_targets, tf.float32, name="targets")
