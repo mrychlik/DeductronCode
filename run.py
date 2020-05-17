@@ -1,4 +1,3 @@
-
 # Basic deductron tests
 from rychlik.deductron_pkg.test_deductron import *
 test_exact_model()
