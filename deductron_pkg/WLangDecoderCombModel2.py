@@ -1,3 +1,4 @@
+import numpy as np
 from . DeductronBase import DeductronBase
 
 class WLangDecoderCombModel2(DeductronBase):  
