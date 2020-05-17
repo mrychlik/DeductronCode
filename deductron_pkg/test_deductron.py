@@ -16,10 +16,10 @@ def _test_template(nn, inputs, targets, descr):
     print(descr, nn(inputs).loss(targets).round(n_digits))
 
 def _test_net_template(nn):
-    _testfun(nn, tiny_inputs, tiny_targets, "Tiny sample loss:   ");
-    _testfun(nn, small_inputs, small_targets, "Small sample loss:   ");
-    _testfun(nn, large_inputs, large_targets, "Large sample loss:   ");
-    _testfun(nn, comb_inputs, comb_targets, "Large sample loss:   ");
+    _test_template(nn, tiny_inputs, tiny_targets, "Tiny sample loss:   ");
+    _test_template(nn, small_inputs, small_targets, "Small sample loss:   ");
+    _test_template(nn, large_inputs, large_targets, "Large sample loss:   ");
+    _test_template(nn, comb_inputs, comb_targets, "Large sample loss:   ");
 
 def test_large_model_1():
     nn = WLangDecoderLargeModel1()    # Only works on large sample
