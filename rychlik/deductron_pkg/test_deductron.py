@@ -5,11 +5,15 @@ from . WLangDecoderCombModel1 import *
 from . WLangDecoderCombModel2 import *
 
 
-# Choose one of the neural nets
-#    WLangDecoderExact()         - Definitely always works
-#    WLangDecoderLargeModel1()   - Only works on large sample
-#    WLangDecoderCombModel1()    - Works except for tiny sample
-#    WLangDecoderCombModel2()    - Works for all
+#
+# We choose one of the neural nets:
+#
+#    WLangDecoderExact         - Definitely always works
+#    WLangDecoderLargeModel1   - Only works on large sample
+#    WLangDecoderCombModel1    - Works except for tiny sample
+#    WLangDecoderCombModel2    - Works for all
+#
+# We test on 4 training datasets.
 
 n_digits = 4
 def _test_template(nn, inputs, targets, descr):
