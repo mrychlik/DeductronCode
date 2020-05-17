@@ -11,5 +11,4 @@ test_learning()
 
 # Run Tensorflow based training
 from rychlik.deductron_tf.test_deductron_tf import *
-
 test_learning_tf()
