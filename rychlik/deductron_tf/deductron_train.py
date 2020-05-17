@@ -15,7 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 from datetime import datetime
-import rychlik.deductron_pkg.data                     # Where the training data are
+import rychlik.deductron_pkg.data   as data # Where the training data are
 
 #tf.enable_eager_execution() 
 #tf.executing_eagerly()        # => True
@@ -90,7 +90,7 @@ def define_graph():
 #
 ################################################################
 
-def run_training():
+def run_graph_training():
     define_graph()
     # Create an optimizer with the desired parameters.
     #opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
