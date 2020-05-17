@@ -127,12 +127,12 @@ print()
 print("Tiny sample loss:   ", nn(tiny_inputs).loss(
     tiny_targets
     ).round(n_digits))
-print("Small sample loss:  ", nn(data.small_inputs).loss(
+print("Small sample loss:  ", nn(small_inputs).loss(
     data.small_targets
     ).round(n_digits))
-print("Large sample loss:  ", nn(data.large_inputs).loss(
+print("Large sample loss:  ", nn(large_inputs).loss(
     data.large_targets
     ).round(n_digits))
-print("Combined sample loss", nn(data.comb_inputs).loss(
+print("Combined sample loss", nn(comb_inputs).loss(
     data.comb_targets
     ).round(n_digits))
