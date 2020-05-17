@@ -10,7 +10,8 @@
 
 from __future__ import absolute_import, division, print_function
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+#import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import io
@@ -85,7 +86,7 @@ with tf.name_scope("output"):
 
 # Create an optimizer with the desired parameters.
 #opt = tf.compat.v1.train.GradientDescentOptimizer(learning_rate=0.5)
-opt = tf.compat.v1.train.AdamOptimizer(learning_rate=0.001)
+opt = tf.train.AdamOptimizer(learning_rate=0.001)
 #opt = tf.compat.v1.train.AdagradOptimizer(learning_rate=0.5)
 
 #
