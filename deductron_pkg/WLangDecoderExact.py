@@ -1,4 +1,4 @@
-import DeductronBase
+from . DeductronBase import DeductronBase
 
 class WLangDecoderExact(DeductronBase):
     '''Implements exact decoder derived in the white paper. '''
