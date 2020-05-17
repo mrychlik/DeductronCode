@@ -40,7 +40,6 @@ def test_comb_model_1():
 def test_comb_model_2():
     nn = WLangDecoderCombModel2()
     _test_net_template(nn, "Works for all");
-    assert 0
 
 
 
