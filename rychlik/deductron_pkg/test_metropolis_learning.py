@@ -8,4 +8,4 @@ def _annealing_test(inputs, targets):
 
 def test_answer():
     _annealing_test(small_inputs, small_targets)
-    assert 0 == 0
+
