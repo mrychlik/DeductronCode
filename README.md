@@ -3,7 +3,8 @@ Computer codes accompanying the paper "Deductron - A Recurrent Neural Network".
 This is a minimalistic implementation. This code should not be used in
 any "production" system.
 
-To run the programs, all one needs to do is run the script:
+To run several programs exercising the package functionality, all one
+needs to do is run the script:
 
 python3 run.py
 
