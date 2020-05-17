@@ -59,7 +59,7 @@ class DeductronBase:
         #
         # Classify memories
         #
-        self.out = 1.0 - self.sigmoid( self.W2 @ z + self.B2 )
+        self.out = 1.0 - self.sigmoid( matmul( self.W2, z) + self.B2 )
 
         return self
 
