@@ -6,7 +6,7 @@ any "production" system.
 To run several programs exercising the package functionality, all one
 needs to do is run the script:
 
-python3 run.py
+`python3 run.py`
 
 # Pure Python Deductron implementation
 In folder rychlik/deductron_pkg one finds a pure Python implementation of the Deductron RNN.
