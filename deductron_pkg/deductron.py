@@ -57,7 +57,7 @@ class WLangDecoderCombModel1(DeductronBase):
             [ 1, -1, -1]]).astype(np.float32)
         self.B2 = np.array([[2], [2]]).astype(np.float32)
 
-class WLangDecoderCombModel2(deductron_base.DeductronBase):  
+class WLangDecoderCombModel2(DeductronBase):  
     '''Deductron trained on combined 'small' and 'stretched' samples of
     total size 29 + 518. Obtained using Tensorflow.
 
