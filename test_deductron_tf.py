@@ -9,5 +9,8 @@ def test_tf_training():
     ded_tf.train(inputs,outputs,n_memory)
 
 
+if __name__ == '__main__':
+    test_tf_training()
+    
 
 
