@@ -1,5 +1,5 @@
 import data
-import deductron
+from deductron import *
 import datetime
 
 #
