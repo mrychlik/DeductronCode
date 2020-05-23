@@ -25,7 +25,7 @@ from datetime import datetime
 
 
 
-def train(inputs, outputs, n_memory = 3):
+def train(inputs, targets, n_memory = 3):
     input_len = inputs.shape[0];
     output_len = targets.shape[0];
 
