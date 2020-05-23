@@ -16,7 +16,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 from datetime import datetime
-import rychlik.deductron_pkg.data as data # Where the training data are
+import data # Where the training data are
 
 tf.disable_v2_behavior()
 
