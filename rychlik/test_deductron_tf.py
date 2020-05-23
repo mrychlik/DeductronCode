@@ -1,5 +1,5 @@
 # Run Tensorflow based training
-import deductron_tf
+from deductron_tf import train
 
 def test_train():
     train()
