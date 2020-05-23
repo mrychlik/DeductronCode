@@ -8,7 +8,7 @@ def _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate
     ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
     outputs = np.round(ret[0],0)
     err_count = np.sum(np.abs(outputs-targets))
-    print("Error count: {}".format(err_count))
+    print("Error count: {:3.0f}".format(err_count))
 
 
 def test_tf_training_tiny_data():
@@ -33,7 +33,7 @@ def test_tf_training_small_data():
 def test_tf_training_big_data():
     inputs  = data.comb_inputs
     targets = data.comb_targets
-    n_memory   = 3             # Num. of memory cells
+    n_memory   = 4             # Num. of memory cells
     n_steps = 600000           # Num. epochs
     loss_threshold = 0.01      # Loss goal
     learning_rate_adam = 0.001 # Initial learning rate for Adam optimizer
