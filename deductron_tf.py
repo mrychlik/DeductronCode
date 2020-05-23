@@ -30,7 +30,7 @@ class DeductronTf(DeductronBase):
     def __init__(self):
         super(DeductronTf, self).__init__(beta = 1, shift = 0)    
 
-    def train(self,inputs, targets,
+    def train(self, inputs, targets,
               n_memory = 3,
               n_steps = 60000,
               loss_threshold = 0.01,
