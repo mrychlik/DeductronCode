@@ -1,6 +1,6 @@
 #
 # @file   deductron.py
-# @author Marek Rychlik <marek@cannonball.lan>
+# @author Marek Rychlik <rychlik@email.arizona.edu>
 # @date   Sun Jun 17 09:47:17 2018
 # 
 # @brief  A deductron simulator and examples
