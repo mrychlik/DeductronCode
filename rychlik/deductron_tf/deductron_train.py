@@ -1,6 +1,6 @@
 #
 # @file   deductron_train.py
-# @author Marek Rychlik <marek@cannonball.lan>
+# @author Marek Rychlik <rychlik@email.arizona.edu>
 # @date   Sun Jun 17 10:25:51 2018
 # 
 # @brief  Implements Deductron training using Tensorflow.
