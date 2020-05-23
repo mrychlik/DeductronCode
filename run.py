@@ -12,7 +12,7 @@ sim_annealing.test_learning()
 
 
 # Run Tensorflow based training
-import deductron_tf as ded_tf
-ded_tf.train()
+import test_deductron_tf as ded_tf
+ded_tf.test_tf_training()
 
 
