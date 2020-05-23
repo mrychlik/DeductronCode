@@ -1,5 +1,8 @@
 # Run Tensorflow based training
-from rychlik.deductron_tf.deductron_train import *
+import deductron_tf
+
+def test_train():
+    train()
 
 
 
