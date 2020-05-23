@@ -8,6 +8,10 @@ needs to do is run the script:
 
 `python3 run.py`
 
+Alternatively, one can test the code by running pytest, e.g.:
+
+`pytest-3.7`
+
 # Pure Python Deductron implementation
 In this folder one finds a pure Python implementation of the Deductron RNN.
 The learning scheme is discrete state space optimization.
