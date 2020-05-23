@@ -9,8 +9,6 @@ ded.test_comb_model_2()
 import test_metropolis_learning as sim_annealing
 sim_annealing.test_learning()
 
-
-
 # Run Tensorflow based training
 import test_deductron_tf as ded_tf
 ded_tf.test_tf_training()
