@@ -7,8 +7,8 @@ def _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate
     ded = DeductronTf();
     ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
     outputs = np.round(ret[0],0)
-    err_count = np.sum(outputs-targets)))
-    print("Error count: {}".format(err_count)
+    err_count = np.sum(np.abs(outputs-targets))
+    print("Error count: {}".format(err_count))
 
 
 def test_tf_training_tiny_data():
@@ -43,5 +43,5 @@ def test_tf_training_big_data():
 if __name__ == '__main__':
     test_tf_training_tiny_data()
     test_tf_training_small_data()
-
+    test_tf_training_big_data()
 
