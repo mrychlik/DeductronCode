@@ -101,6 +101,7 @@ class QuantizedDeductron(DeductronBase):
             
     @staticmethod
     def train(n_memory, inputs, targets, beta_incr = 0.001):
+        ''' Implements deductron training by simulated annealing.'''
         n_in, _ = inputs.shape
         n_out, _ = targets.shape        
 
