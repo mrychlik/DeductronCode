@@ -24,20 +24,17 @@ import io
 from datetime import datetime
 from deductron import DeductronBase
 
-class DeductronTf:
+class DeductronTf(DeductronBase):
     '''Deductron implementing Tensorflow training.'''
+    
+    def __init__(self):
+        super(DeductronTf, self).__init__(beta = 1, shift = 0)    
 
-
-
-    @staticmethod
     def train(inputs, targets,
               n_memory = 3,
               n_steps = 60000,
               loss_threshold = 0.01,
               learning_rate_adam = 0.001):
-        '''Number of steps
-        Stop if loss < this value
-        '''
 
         input_len = inputs.shape[0];
         output_len = targets.shape[0];
@@ -136,13 +133,18 @@ class DeductronTf:
 
             writer.close()
 
-            print("W1:\n{}".format(np.round(W1.eval(),2)))
-            print("B1:\n{}".format(np.round(B1.eval(),2)))
-            print("W2:\n{}".format(np.round(W2.eval(),2)))
-            print("B2:\n{}".format(np.round(B2.eval(),2)))
-            print("Outputs: {}".format(np.round(np.transpose(out.eval()),1)))    
-            print("Loss: {}".format(loss.eval()))
-            print("Real Loss: {}".format(loss1.eval()))
+            # print("W1:\n{}".format(np.round(W1.eval(),2)))
+            # print("B1:\n{}".format(np.round(B1.eval(),2)))
+            # print("W2:\n{}".format(np.round(W2.eval(),2)))
+            # print("B2:\n{}".format(np.round(B2.eval(),2)))
+            # print("Outputs: {}".format(np.round(np.transpose(out.eval()),1)))    
+            # print("Loss: {}".format(loss.eval()))
+            # print("Real Loss: {}".format(loss1.eval()))
+
+            self.W1 = W1.eval();
+            self.B1 = B1.eval();
+            self.W2 = W2.eval();
+            self.B2 = B2.eval();
 
             sess.close()
         tf.reset_default_graph()
