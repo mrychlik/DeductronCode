@@ -1,4 +1,4 @@
-import data
+from data import *
 from deductron import *
 import datetime
 
