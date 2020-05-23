@@ -24,8 +24,11 @@ import io
 from datetime import datetime
 
 
+def train(inputs, targets, n_memory = 3, n_steps = 60000, loss_threshold = 0.01):
+    '''Number of steps
+    Stop if loss < this value
+    '''
 
-def train(inputs, targets, n_memory = 3):
     input_len = inputs.shape[0];
     output_len = targets.shape[0];
 
@@ -36,8 +39,8 @@ def train(inputs, targets, n_memory = 3):
     ################################################################
 
     with tf.name_scope("classify_inputs"):
-        inputs  = tf.constant(_inputs,  tf.float32, name="inputs")
-        targets = tf.constant(_targets, tf.float32, name="targets")
+        inputs  = tf.constant(inputs,  tf.float32, name="inputs")
+        targets = tf.constant(targets, tf.float32, name="targets")
         n_frames = inputs.shape[1]
         W1 = tf.get_variable("W1", shape = [2*n_memory, input_len],
                              dtype = tf.float32)
@@ -90,8 +93,6 @@ def train(inputs, targets, n_memory = 3):
     # Run the training
     #
     train = opt.minimize(loss)
-    n_steps = 60000                 # Number of steps
-    loss_threshold = 0.01           # Stop if loss < this value
 
     date = datetime.now().isoformat() # Label for summaries
     tf.summary.scalar("loss-" + date, loss)
