@@ -11,31 +11,23 @@
 from __future__ import absolute_import, division, print_function
 
 import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
+## If you are still using Tensorflow v.1 comment out two lines above
+## and uncomment the next one
+
 #import tensorflow as tf
+
 import numpy as np
 import matplotlib.pyplot as plt
 import io
 from datetime import datetime
-import data # Where the training data are
 
-tf.disable_v2_behavior()
 
-# Get training data; should be numpy 2D arrays
-#_inputs  = data.small_inputs
-#_targets = data.small_targets
 
-_inputs  = data.comb_inputs
-_targets = data.comb_targets
-
-# Set parameters for the network
-n_memory   = 3                  # Num. of memory cells
-input_len  = 6                  # Input frame size
-output_len = 2                  # Output frame size
-
-assert(_inputs.shape[0] == input_len)
-assert(_targets.shape[0] == output_len)
-
-def train():
+def train(inputs, outputs, n_memory = 3):
+    input_len = inputs.shape[0];
+    output_len = targets.shape[0];
 
     ################################################################
     #
