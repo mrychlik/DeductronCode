@@ -135,5 +135,3 @@ def train(inputs, outputs, n_memory = 3):
 
         sess.close()
 
-if __name__ == '__main__':
-    train()
