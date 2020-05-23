@@ -2,7 +2,7 @@
 import deductron_tf as ded_tf
 import data
 
-def test_tf_training_fast():
+def test_tf_training_tiny_data():
     inputs  = data.tiny_inputs
     targets = data.tiny_targets
     n_memory   = 3            # Num. of memory cells
@@ -11,7 +11,16 @@ def test_tf_training_fast():
     learning_rate_adam = 0.01 # Initial learning rate for Adam optimizer
     ded_tf.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
 
-def test_tf_training_slow():
+def test_tf_training_small_data():
+    inputs  = data.small_inputs
+    targets = data.small_targets
+    n_memory   = 3            # Num. of memory cells
+    n_steps = 5000            # Num. epochs
+    loss_threshold = 0.1      # Loss goal
+    learning_rate_adam = 0.01 # Initial learning rate for Adam optimizer
+    ded_tf.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
+
+def test_tf_training_big_data():
     inputs  = data.comb_inputs
     targets = data.comb_targets
     n_memory   = 3             # Num. of memory cells
@@ -22,7 +31,7 @@ def test_tf_training_slow():
 
 
 if __name__ == '__main__':
-    test_tf_training_fast()
+    test_tf_training_small_data()
     
 
 
