@@ -12,7 +12,6 @@
 #
 
 import numpy as np
-from . deductron_base import DeductronBase
 from . data    import *                # For sample inputs
 import copy
 import random
