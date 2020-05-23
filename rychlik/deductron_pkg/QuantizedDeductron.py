@@ -4,6 +4,9 @@ import copy
 import random
 
 class QuantizedDeductron(DeductronBase):
+    '''QuantizedDeductron is a Deductron with discrete weights. It implements
+    support for Metropolis dynamics (a.k.a. simulated annealing).
+    '''
 
     ADMISSIBLE_WEIGHTS = [-1,0,1]
     ADMISSIBLE_BIASES  = [0,1,2,3,4,5]
