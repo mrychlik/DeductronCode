@@ -110,7 +110,7 @@ class DeductronTf(DeductronBase):
             init = tf.global_variables_initializer()
             sess.run(init)
 
-            print("{}\t{}\t{}".format('Step','Reg. loss','Real loss'))
+            print("{:8} | {:8} | {:8}".format('Step','Reg. loss','Real loss'))
             for step in range(n_steps):
                 #grads_and_vars = opt.compute_gradients(loss)
                 #new_grads_and_vars = grads_and_vars
@@ -120,7 +120,7 @@ class DeductronTf(DeductronBase):
                 loss_value = sess.run(loss)
                 loss1_value = sess.run(loss1)
                 if step % 100 == 0:
-                    print("{}\t{}\t{}".format(step,loss_value,loss1_value))
+                    print("{:8d} | {:8.3f} | {:8.3f}".format(step,loss_value,loss1_value))
                 summary = sess.run(write_op)
                 writer.add_summary(summary, step)
                 writer.flush()
