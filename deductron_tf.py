@@ -151,6 +151,6 @@ class DeductronTf(DeductronBase):
             reallossval = loss1.eval();
 
             sess.close()
-        tf.reset_default_graph()
+        tf.reset_default_graph() # Prepare for another run
         return (outputs,lossval,reallossval)
 
