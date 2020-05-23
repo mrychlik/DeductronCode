@@ -3,6 +3,13 @@ from deductron_tf import DeductronTf
 import data
 import numpy as np
 
+def _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam):
+    ded = DeductronTf();
+    ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
+    outputs = np.round(ret[0],0)
+    print("Outputs rounded to integer: {}".format(outputs-targets))
+
+
 def test_tf_training_tiny_data():
     inputs  = data.tiny_inputs
     targets = data.tiny_targets
@@ -10,10 +17,7 @@ def test_tf_training_tiny_data():
     n_steps = 5000            # Num. epochs
     loss_threshold = 0.1      # Loss goal
     learning_rate_adam = 0.01 # Initial learning rate for Adam optimizer
-    ded = DeductronTf();
-
-    ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
-    print("Outputs: {}".format(np.round(ret[0],0)));
+    _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
 
 def test_tf_training_small_data():
     inputs  = data.small_inputs
@@ -22,10 +26,8 @@ def test_tf_training_small_data():
     n_steps = 20000           # Num. epochs
     loss_threshold = 0.1      # Loss goal
     learning_rate_adam = 0.01 # Initial learning rate for Adam optimizer
-    ded = DeductronTf();
+    _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
 
-    ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
-    print("Outputs: {}".format(np.round(ret[0],0)));
 
 def test_tf_training_big_data():
     inputs  = data.comb_inputs
@@ -34,10 +36,8 @@ def test_tf_training_big_data():
     n_steps = 600000           # Num. epochs
     loss_threshold = 0.01      # Loss goal
     learning_rate_adam = 0.001 # Initial learning rate for Adam optimizer
-    ded = DeductronTf();
+    _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
 
-    ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
-    print("Outputs: {}".format(np.round(ret[0],0)));
 
 if __name__ == '__main__':
     test_tf_training_tiny_data()
