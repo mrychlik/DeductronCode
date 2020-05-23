@@ -139,4 +139,4 @@ def train(inputs, targets,
         print("Real Loss: {}".format(loss1.eval()))
 
         sess.close()
-        tf.reset_default_graph()
+    tf.reset_default_graph()
