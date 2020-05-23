@@ -24,7 +24,11 @@ import io
 from datetime import datetime
 
 
-def train(inputs, targets, n_memory = 3, n_steps = 60000, loss_threshold = 0.01):
+def train(inputs, targets,
+          n_memory = 3,
+          n_steps = 60000,
+          loss_threshold = 0.01,
+          learning_rate_adam = 0.001):
     '''Number of steps
     Stop if loss < this value
     '''
@@ -86,7 +90,7 @@ def train(inputs, targets, n_memory = 3, n_steps = 60000, loss_threshold = 0.01)
 
     # Create an optimizer with the desired parameters.
     #opt = tf.train.GradientDescentOptimizer(learning_rate=0.5)
-    opt = tf.train.AdamOptimizer(learning_rate=0.001)
+    opt = tf.train.AdamOptimizer(learning_rate=learning_rate_adam)
     #opt = tf.train.AdagradOptimizer(learning_rate=0.5)
 
     #
