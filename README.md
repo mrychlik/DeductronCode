@@ -9,12 +9,12 @@ needs to do is run the script:
 `python3 run.py`
 
 # Pure Python Deductron implementation
-In folder rychlik/deductron_pkg one finds a pure Python implementation of the Deductron RNN.
+In this folder one finds a pure Python implementation of the Deductron RNN.
 The learning scheme is discrete state space optimization.
 The particular optimization scheme is Metropolis-Hastings.
 
 # Deductron implementation using Tensorflow
-In folder rychlik/deductron_tf there is a Python script implementing Deductron RNN
+In file deductron_tf.py there is a Python script implementing Deductron RNN
 through Tensorflow. This folder has a single script.
 
 The run of the script run.py leaves the Tenslorflow logs in folder
