@@ -1,9 +1,6 @@
-from . data import *
-from . WLangDecoderExact import *
-from . WLangDecoderLargeModel1 import *
-from . WLangDecoderCombModel1 import *
-from . WLangDecoderCombModel2 import *
-
+import data
+import deductron
+import datetime
 
 #
 # We choose one of the neural nets:
@@ -47,3 +44,8 @@ def test_comb_model_2():
 
 
 
+if __name__ == '__main__':
+    run_name = datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
+    print(run_name)
+    test_exact_model()
+    test_large_model_1()
