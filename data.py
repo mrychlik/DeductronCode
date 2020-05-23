@@ -1189,8 +1189,8 @@ tiny_targets = np.array([
 
 def img_to_input(x):
     """Converts W-language image x to a list of 2-column windows."""
-    y=list(x);y.pop(0)                   #Shift x left 
-    z=list(x);z.pop(-1)                  #Shift x right
+    y = list(x);y.pop(0)                   #Shift x left 
+    z = list(x);z.pop(-1)                  #Shift x right
     # Combine
     return np.array(list(map(lambda x: x[1]+x[0] , zip(y, z))))
 
