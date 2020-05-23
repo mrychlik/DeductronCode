@@ -120,7 +120,7 @@ class DeductronTf(DeductronBase):
                 loss1_value = sess.run(loss1)
                 if step % 100 == 0:
                     print("Step: ", step,
-                          "Loss: ", loss_value,
+                          "Regularized Loss: ", loss_value,
                           "Real Loss: ", loss1_value)
 
                 summary = sess.run(write_op)
