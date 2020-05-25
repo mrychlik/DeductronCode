@@ -28,7 +28,9 @@ class BromelloBuilder:
                                               self.FontSize,
                                               self.SpecialString)
     def draw_string(self, text):
+        # Add special string on both ends
         (aug_im, box) = sp.draw_string(self.SpecialString + text + self.SpecialString)
+        # Eliminate pixels of special string
         im = aug_im[:,self.SpecialWidth:(aug_im.shape[1]-self.SpecialWidth)]
         return (im, box)
 
