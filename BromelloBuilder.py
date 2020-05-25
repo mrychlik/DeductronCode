@@ -11,11 +11,11 @@ class BromelloBuilder:
     FontSize = 48  
     SpecialString = '[kY]'  
     SpecialImage = None
-    SpecialBox = None
     SpecialWidth = None
+    SpecialBox = None
 
     def __init__(self):
-        (self.SpecialImage, self.SpecialBox) = sp.draw_string(self.SpecialString)
+        self.SpecialImage, _ = sp.draw_string(self.SpecialString)
         self.SpecialWidth = self.SpecialImage.shape[1]
 
 
@@ -38,7 +38,7 @@ class BromelloBuilder:
 
 if __name__ == '__main__':
     bb = BromelloBuilder();
-    pixels, box, = bb.draw_string('abc')
+    pixels, box = bb.draw_string('abc')
     pylab.imshow(pixels)
     pylab.show()
     
