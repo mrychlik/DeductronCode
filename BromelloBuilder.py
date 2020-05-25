@@ -79,6 +79,10 @@ class BromelloBuilder:
         im = self.draw_strings(strings)
         return (im, strings)
 
+    def build_training_data(self):
+        return (self.build_unigrams() +
+                self.build_bigrams() +
+                self.build_spaced_bigrams())
 
 if __name__ == '__main__':
     bb = BromelloBuilder();
