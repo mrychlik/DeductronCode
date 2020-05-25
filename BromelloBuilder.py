@@ -41,48 +41,50 @@ class BromelloBuilder:
             im[j] = self.draw_string(strings[j])
         return im
             
-
     def build_unigrams(self):
         j=0
         numChars = len(self.Alphabet)
-        strings = numChars*[None]
+        labels = numChars*[None]
         for k in range(numChars):
             c = self.Alphabet[k]
-            strings[j] = c
+            labels[j] = c
             j=j+1
-        im = self.draw_strings(strings)
-        return (im, strings)
+        im = self.draw_strings(labels)
+        return (im, labels)
 
     def build_bigrams(self):
         j=0
         numChars = len(self.Alphabet)
-        strings = numChars*numChars*[None]
+        labels = numChars*numChars*[None]
         for k in range(numChars):
             c1 = self.Alphabet[k]
             for l in range(numChars):
                 c2 = self.Alphabet[l]
-                strings[j] = c1 + c2
+                labels[j] = c1 + c2
                 j=j+1
-        im = self.draw_strings(strings)
-        return (im, strings)
+        im = self.draw_strings(labels)
+        return (im, labels)
 
     def build_spaced_bigrams(self):
         j=0
         numChars = len(self.Alphabet)
-        strings = numChars*numChars*[None]
+        labels = numChars*numChars*[None]
         for k in range(numChars):
             c1 = self.Alphabet[k]
             for l in range(numChars):
                 c2 = self.Alphabet[l]
-                strings[j] = c1 + ' ' + c2
+                labels[j] = c1 + ' ' + c2
                 j=j+1
-        im = self.draw_strings(strings)
-        return (im, strings)
+        im = self.draw_strings(labels)
+        return (im, labels)
 
     def build_training_data(self):
-        return (self.build_unigrams() +
-                self.build_bigrams() +
-                self.build_spaced_bigrams())
+        (im1, lab1) = self.build_unigrams()
+        (im2, lab2) = self.build_bigrams()
+        (im3, lab3) = self.build_spaced_bigrams()
+        im = im1 + im2 + im3
+        lab = lab1 + lab2 + lab3
+        return (im, lab)
 
 if __name__ == '__main__':
     bb = BromelloBuilder();
