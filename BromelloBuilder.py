@@ -1,5 +1,6 @@
 import string_painter as sp
 import pylab
+import numpy as np
 
 class BromelloBuilder:
     Alphabet = '!"#$%&''()*+,-./' \
@@ -32,7 +33,7 @@ class BromelloBuilder:
         (aug_im, _) = sp.draw_string(self.SpecialString + text + self.SpecialString)
         # Eliminate pixels of special string
         im = aug_im[:,(self.SpecialWidth+1):(aug_im.shape[1]-self.SpecialWidth)]
-        return im
+        return np.array(im/255,dtype=np.float32)
 
     def draw_strings(self, strings):
         nstr = len(strings)
@@ -85,7 +86,7 @@ class BromelloBuilder:
         im = im1 + im2 + im3
         lab = lab1 + lab2 + lab3
         return (im, lab)
-
+        
 if __name__ == '__main__':
     bb = BromelloBuilder();
     text = 'Professor Rychlik can Bromello on occasions'
