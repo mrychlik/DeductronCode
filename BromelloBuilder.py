@@ -29,16 +29,23 @@ class BromelloBuilder:
                                               self.SpecialString)
     def draw_string(self, text):
         # Add special string on both ends
-        (aug_im, box) = sp.draw_string(self.SpecialString + text + self.SpecialString)
+        (aug_im, _) = sp.draw_string(self.SpecialString + text + self.SpecialString)
         # Eliminate pixels of special string
-        im = aug_im[:,self.SpecialWidth:(aug_im.shape[1]-self.SpecialWidth)]
-        return (im, box)
+        im = aug_im[:,(self.SpecialWidth+1):(aug_im.shape[1]-self.SpecialWidth)]
+        return im
 
-
+    def draw_strings(self, strings):
+        nstr = len(strings)
+        im = nstr * [None]
+        for j in range(0, nstr):
+            im[j] = self.draw_string(strings[j])
+        return im
+            
 
 if __name__ == '__main__':
     bb = BromelloBuilder();
-    pixels, box = bb.draw_string('abc')
+    text = 'Professor Rychlik can Bromello on occasions'
+    pixels = bb.draw_string(text)
     pylab.imshow(pixels)
     pylab.show()
     
