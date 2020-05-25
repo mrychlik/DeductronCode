@@ -42,6 +42,31 @@ class BromelloBuilder:
         return im
             
 
+    def build_unigrams(self):
+        j=0
+        numChars = len(self.Alphabet)
+        strings = numChars*[None]
+        for k in range(numChars):
+            c = self.Alphabet[k]
+            strings[j] = c
+            j=j+1
+        im = self.draw_strings(strings)
+        return (im, strings)
+
+    def build_bigrams(self):
+        j=0
+        numChars = len(self.Alphabet)
+        strings = numChars*numChars*[None]
+        for k in range(numChars):
+            c1 = self.Alphabet[k]
+            for l in range(numChars):
+                c2 = self.Alphabet[l]
+                strings[j] = c1 + c2
+                j=j+1
+        im = self.draw_strings(strings)
+        return (im, strings)
+
+
 if __name__ == '__main__':
     bb = BromelloBuilder();
     text = 'Professor Rychlik can Bromello on occasions'
