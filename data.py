@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     data.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:43:47 2020
+# Copying:  (C) Marek Rychlik, 2020. All rights reserved.
+# 
+#----------------------------------------------------------------
+
 import numpy as np
 
 # Training image
