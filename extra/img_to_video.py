@@ -17,9 +17,10 @@ def img_to_video(x, window):
 
 def play_video(lst, delay=1):
     n = len(lst)
-    nr = np.ceil(np.sqrt(n))
-    nc = nr
+    #nr = np.ceil(np.sqrt(n+1))
+    nr = 1
+    nc = n
     for j in range(n):
-        plt.subplot(nr,nc,j)
+        plt.subplot(nr,nc,j+1)
         plt.imshow(lst[j])
     plt.show()
