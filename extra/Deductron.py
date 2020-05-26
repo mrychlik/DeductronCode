@@ -7,6 +7,7 @@
 # Copying:  (C) Marek Rychlik, 2019. All rights reserved.
 # 
 #----------------------------------------------------------------
+# @brief    Deductron implementation as a Keras layer.
 
 import tensorflow as tf
 import numpy as np
@@ -63,39 +64,7 @@ class Deductron(layers.Layer):
 
 
 if __name__ == '__main__':
-    #
-    # Sliding windows for string 'XO'
-    # surrounded by blanks
-    #
-    tiny_inputs = np.array([
-        [0, 0, 0, 0, 0, 1],
-        [0, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 0],
-        [1, 0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0, 1],
-        [0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0],
-        [1, 0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0, 1],
-        [0, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 0],
-        [1, 0, 0, 0, 0, 0]
-    ],dtype='float32')
-
-    tiny_targets = np.array([
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [1, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 1],
-        [0, 0],
-        [0, 0],
-    ],dtype='float32')
+    from tiny_data import *
 
     inputs = tiny_inputs
     targets = tiny_targets
