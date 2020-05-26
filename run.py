@@ -1,4 +1,14 @@
-# Basic deductron tests
+#----------------------------------------------------------------
+# File:     run.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:47:17 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+# @brief    Basic deductron tests.
+
 import test_deductron as ded
 ded.test_exact_model()
 ded.test_large_model_1()
