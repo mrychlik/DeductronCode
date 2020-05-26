@@ -1,9 +1,14 @@
+#----------------------------------------------------------------
+# File:     deductron.py
+#----------------------------------------------------------------
 #
-# @file   deductron.py
-# @author Marek Rychlik <rychlik@email.arizona.edu>
-# @date   Sun Jun 17 09:47:17 2018
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:40:10 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
 # 
-# @brief  A deductron simulator and examples
+#----------------------------------------------------------------
+# 
+# A deductron simulator and examples
 # 
 # This simple implementation of a deductron simulator
 # uses numpy in class DeductronBase. Subsequently
