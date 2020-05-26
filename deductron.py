@@ -10,10 +10,10 @@
 # 
 # @brief    A deductron simulator and examples.
 # 
-# This simple implementation of a deductron simulator
-# uses numpy in class DeductronBase. Subsequently
-# several concrete weight/bias combinations are provided
-# as found by Tensorflow with different training sets.
+# This simple implementation of a deductron simulator uses numpy in
+# class DeductronBase. Subsequently several concrete weight/bias
+# combinations are provided as found by Tensorflow (see file
+# deductron_tf.py) with varioius training sets.
 #
 
 import numpy as np
