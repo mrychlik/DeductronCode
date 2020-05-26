@@ -17,7 +17,7 @@ def img_to_video(x, window = 3):
 
 
 def play_video(lst, delay=1):
-    '''Dispplay a list of images as a film-like strip.'''
+    '''Display a list of images as a film-like strip.'''
     n = len(lst)
     #nr = np.ceil(np.sqrt(n+1))
     nr = 1
