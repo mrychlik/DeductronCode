@@ -7,6 +7,7 @@
 # Copying:  (C) Marek Rychlik, 2019. All rights reserved.
 # 
 #----------------------------------------------------------------
+# @brief    Builds test strings using the Bromello font
 
 import string_painter as sp
 import pylab
