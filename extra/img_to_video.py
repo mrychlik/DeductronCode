@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     img_to_video.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:37:54 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+
 import numpy as np
 import time
 import matplotlib.pyplot as plt
