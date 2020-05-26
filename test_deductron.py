@@ -1,3 +1,14 @@
+#----------------------------------------------------------------
+# File:     test_deductron.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:49:29 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+# @brief    Performs basic deductron tests.
+
 from data import *
 from deductron import *
 import datetime
