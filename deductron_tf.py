@@ -1,12 +1,13 @@
+#----------------------------------------------------------------
+# File:     deductron_tf.py
+#----------------------------------------------------------------
 #
-# @file   deductron_tf.py
-# @author Marek Rychlik <rychlik@email.arizona.edu>
-# @date   Sun Jun 17 10:25:51 2018
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:44:16 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
 # 
+#----------------------------------------------------------------
 # @brief  Implements Deductron training using Tensorflow.
-# 
-#
-#
 
 from __future__ import absolute_import, division, print_function
 
