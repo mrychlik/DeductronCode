@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     DeductronCTC.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:37:43 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+
 import tensorflow as tf
 import numpy as np
 
@@ -17,9 +27,9 @@ class DeductronCTC(tf.keras.Model):
                                    output_len = n_classes)
     
 
-    def call(self, inputs, targets):
+    def call(self, inputs, labels):
         outputs = self.deductron(inputs)
-        ctc_loss = tf.nn.ctc_loss(labels = targets, logits = outputs,
+        ctc_loss = tf.nn.ctc_loss(labels = labels, logits = outputs,
                                   logit_length = targets.shape[1],
                                   label_length = 100,
                                   blank_index = -1)
@@ -28,42 +38,6 @@ class DeductronCTC(tf.keras.Model):
 
 
 if __name__ == '__main__':
-    #
-    # Sliding windows for string 'XO'
-    # surrounded by blanks
-    #
-    tiny_inputs = np.array([
-        [0, 0, 0, 0, 0, 1],
-        [0, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 0],
-        [1, 0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0, 1],
-        [0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0],
-        [1, 0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0, 1],
-        [0, 0, 1, 0, 1, 0],
-        [0, 1, 0, 1, 0, 0],
-        [1, 0, 0, 0, 0, 0]
-    ],dtype='float32')
-
-    tiny_targets = np.array([
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [1, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 1],
-        [0, 0],
-        [0, 0],
-    ],dtype='float32')
-
-    inputs = tiny_inputs
-    targets = tiny_targets
         
     ded = DeductronCTC(n_memory = 3, input_len = 6, n_classes = 3)
     outputs = ded(inputs, targets)
