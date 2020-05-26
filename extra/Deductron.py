@@ -8,6 +8,10 @@
 # 
 #----------------------------------------------------------------
 # @brief    Deductron implementation as a Keras layer.
+#
+# To be consistent with conventions of Keras, we transpose inputs and targets
+# (one-hot encoded labels). This leads to transposing the weights, as compared
+# to the original Deductron paper.
 
 import tensorflow as tf
 import numpy as np
