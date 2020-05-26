@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 def img_to_video(x, window):
     z = np.zeros([x.shape[0],window])
@@ -13,7 +14,7 @@ def img_to_video(x, window):
 
 
 
-def play_video(lst):
+def play_video(lst, delay=1):
     for j in range(len(lst)):
         pylab.imshow(lst[j])
         pylab.show()
