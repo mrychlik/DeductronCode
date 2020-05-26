@@ -27,7 +27,7 @@ class Deductron(layers.Layer):
         self.W2 = tf.Variable(initial_value = W2_init(shape = (output_len,n_memory),
                                                       dtype='float32'),
                               trainable = True);
-                              
+        
         B2_init = tf.random_normal_initializer()
         self.B2 = tf.Variable(initial_value = B2_init(shape = (output_len,1),
                                                       dtype = 'float32'),
