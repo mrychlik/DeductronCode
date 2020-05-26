@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     BromelloBuilder.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:37:33 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+
 import string_painter as sp
 import pylab
 import numpy as np
