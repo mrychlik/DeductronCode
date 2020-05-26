@@ -1,3 +1,14 @@
+#----------------------------------------------------------------
+# File:     test_metropolis_learning.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:48:11 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+# @brief    Runs Metropolis (a.k.a. simulated annealing) training.
+
 from data import small_inputs, small_targets
 from deductron import QuantizedDeductron
 import datetime
