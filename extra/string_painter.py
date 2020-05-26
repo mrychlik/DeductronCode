@@ -11,7 +11,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 import pylab
-from bbox import bbox
 import os
 
 DEFAULT_TEXT = 'Professor Rychlik can Bromello on occasions'
