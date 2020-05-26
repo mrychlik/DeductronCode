@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     Deductron.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:16:32 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+
 import tensorflow as tf
 import numpy as np
 
@@ -15,40 +25,42 @@ class Deductron(layers.Layer):
         self.output_len = output_len
 
         W1_init = tf.random_normal_initializer()
-        self.W1 = tf.Variable(initial_value = W1_init(shape = (2*n_memory,input_len),
+        self.W1 = tf.Variable(initial_value = W1_init(shape = (input_len,2*n_memory),
                                                       dtype='float32'),
                               trainable = True);
                               
         B1_init = tf.random_normal_initializer()
-        self.B1 = tf.Variable(initial_value = B1_init(shape = (2*n_memory,1),
+        self.B1 = tf.Variable(initial_value = B1_init(shape = (1,2*n_memory),
                                                       dtype = 'float32'),
                               trainable = True);
         W2_init = tf.random_normal_initializer()
-        self.W2 = tf.Variable(initial_value = W2_init(shape = (output_len,n_memory),
+        self.W2 = tf.Variable(initial_value = W2_init(shape = (n_memory,output_len),
                                                       dtype='float32'),
                               trainable = True);
         
         B2_init = tf.random_normal_initializer()
-        self.B2 = tf.Variable(initial_value = B2_init(shape = (output_len,1),
+        self.B2 = tf.Variable(initial_value = B2_init(shape = (1,output_len),
                                                       dtype = 'float32'),
                               trainable = True);
                                                       
     def call(self, inputs):
         n_frames = inputs.shape[0]
-        h = tf.sigmoid( tf.matmul(self.W1,inputs) + self.B1 )
-        [left,right] = tf.split(h, num_or_size_splits=2, axis=0)
+        h = tf.sigmoid( tf.matmul(inputs,self.W1) + self.B1 )
+        [left,right] = tf.split(h, num_or_size_splits=2, axis=1)
         prod = tf.multiply(left, right) #Hadamard product
-        prod = tf.unstack(prod, axis=1)
-        left = tf.unstack(left, axis=1)
+        prod = tf.unstack(prod, axis=0)
+        left = tf.unstack(left, axis=0)
         u = tf.zeros([self.n_memory])
         zlst = [u]
         for t in range(1, n_frames):
             ## Memory
             u = prod[t-1] * u + ( 1.0 - left[t-1])
             zlst.append(u)
-            z = tf.stack(zlst, axis = 1)
-        out = 1.0 - tf.sigmoid( tf.matmul(self.W2, z) + self.B2)
+            z = tf.stack(zlst, axis = 0)
+        out =  tf.matmul(z,self.W2) + self.B2
         return out
+
+
 
 if __name__ == '__main__':
     #
@@ -68,7 +80,7 @@ if __name__ == '__main__':
         [0, 0, 1, 0, 1, 0],
         [0, 1, 0, 1, 0, 0],
         [1, 0, 0, 0, 0, 0]
-    ],dtype='float32').transpose()
+    ],dtype='float32')
 
     tiny_targets = np.array([
         [0, 0],
@@ -83,7 +95,7 @@ if __name__ == '__main__':
         [0, 1],
         [0, 0],
         [0, 0],
-    ],dtype='float32').transpose()
+    ],dtype='float32')
 
     inputs = tiny_inputs
     targets = tiny_targets
