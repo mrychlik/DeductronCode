@@ -114,10 +114,6 @@ class DeductronTf(DeductronBase):
             print("{:8} | {:10} | {:10}".format('Step','Reg. loss','Real loss'))
             print("--------------------------------------------------------")
             for step in range(n_steps):
-                #grads_and_vars = opt.compute_gradients(loss)
-                #new_grads_and_vars = grads_and_vars
-                #train = opt.apply_gradients(grads_and_vars)
-                #sess.run(step.assign_add(1))
                 sess.run(train)
                 loss_value = sess.run(loss)
                 loss1_value = sess.run(loss1)
