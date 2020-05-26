@@ -1,6 +1,7 @@
 import string_painter as sp
 import pylab
 import numpy as np
+import matplotlib.pyplot as plt
 
 class BromelloBuilder:
     Alphabet = '!"#$%&''()*+,-./' \
@@ -91,6 +92,6 @@ if __name__ == '__main__':
     bb = BromelloBuilder();
     text = 'Professor Rychlik can Bromello on occasions'
     pixels = bb.draw_string(text)
-    pylab.imshow(pixels)
-    pylab.show()
+    plt.imshow(pixels)
+    plt.show()
     
