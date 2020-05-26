@@ -7,7 +7,7 @@
 # Copying:  (C) Marek Rychlik, 2019. All rights reserved.
 # 
 #----------------------------------------------------------------
-# @brief    Run Tensorflow based training
+# @brief    Run Tensorflow based training on several examples
 
 from deductron_tf import DeductronTf
 import data
