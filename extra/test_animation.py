@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     test_animation.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:38:10 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
