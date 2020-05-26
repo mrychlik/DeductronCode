@@ -1,4 +1,14 @@
-# Run Tensorflow based training
+#----------------------------------------------------------------
+# File:     test_deductron_tf.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Tue May 26 07:47:35 2020
+# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# 
+#----------------------------------------------------------------
+# @brief    Run Tensorflow based training
+
 from deductron_tf import DeductronTf
 import data
 import numpy as np
