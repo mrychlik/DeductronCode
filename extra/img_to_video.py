@@ -2,7 +2,8 @@ import numpy as np
 import time
 import matplotlib.pyplot as plt
 
-def img_to_video(x, window):
+def img_to_video(x, window = 3):
+    '''Converts image go a video by using a sliding window.'''
     z = np.zeros([x.shape[0],window])
     # Pad with zeros on both ends
     nrows = x.shape[0]
@@ -16,6 +17,7 @@ def img_to_video(x, window):
 
 
 def play_video(lst, delay=1):
+    '''Dispplay a list of images as a film-like strip.'''
     n = len(lst)
     #nr = np.ceil(np.sqrt(n+1))
     nr = 1
