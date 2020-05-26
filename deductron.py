@@ -8,7 +8,7 @@
 # 
 #----------------------------------------------------------------
 # 
-# A deductron simulator and examples
+# @brief    A deductron simulator and examples.
 # 
 # This simple implementation of a deductron simulator
 # uses numpy in class DeductronBase. Subsequently
