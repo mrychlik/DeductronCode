@@ -4,7 +4,7 @@
 #
 # Author:   Marek Rychlik (rychlik@email.arizona.edu)
 # Date:     Tue May 26 07:48:11 2020
-# Copying:  (C) Marek Rychlik, 2019. All rights reserved.
+# Copying:  (C) Marek Rychlik, 2020. All rights reserved.
 # 
 #----------------------------------------------------------------
 # @brief    Runs Metropolis (a.k.a. simulated annealing) training.
