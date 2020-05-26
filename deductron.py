@@ -7,7 +7,6 @@
 # Copying:  (C) Marek Rychlik, 2019. All rights reserved.
 # 
 #----------------------------------------------------------------
-# 
 # @brief    A deductron simulator and examples.
 # 
 # This simple implementation of a deductron simulator uses numpy in
