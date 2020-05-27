@@ -22,6 +22,7 @@ def _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate
 
 
 def test_tf_training_tiny_data():
+    '''Test on really tiny string XO.'''
     inputs  = data.tiny_inputs
     targets = data.tiny_targets
     n_memory   = 3            # Num. of memory cells
@@ -31,6 +32,7 @@ def test_tf_training_tiny_data():
     _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
 
 def test_tf_training_small_data():
+    '''Test on small string XOOXXO.'''
     inputs  = data.small_inputs
     targets = data.small_targets
     n_memory   = 3            # Num. of memory cells
