@@ -43,6 +43,7 @@ def test_tf_training_small_data():
 
 
 def _test_tf_training_big_data():
+    '''Test on randomly generated stretched instanse of W-language. Takes a long time.'''
     inputs  = data.comb_inputs
     targets = data.comb_targets
     n_memory   = 4             # Num. of memory cells
