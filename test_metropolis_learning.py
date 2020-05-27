@@ -14,7 +14,8 @@ from deductron import QuantizedDeductron
 import datetime
 
 def _annealing_test(inputs, targets):
-    net, loss = QuantizedDeductron.train(3, inputs, targets, beta_incr = 1e-5, seed = 666)
+    # beta_incr and seed have been optimized for fast training success
+    net, loss = QuantizedDeductron.train(3, inputs, targets, beta_incr = 1e-4, seed = 1)
     print(str(net))
     return (net, loss)
 
