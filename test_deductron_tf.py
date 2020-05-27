@@ -53,5 +53,8 @@ def test_tf_training_big_data():
 if __name__ == '__main__':
     test_tf_training_tiny_data()
     test_tf_training_small_data()
+    #
+    # NOTE: Run this only if you have quite a bit of time...
+    #
     #test_tf_training_big_data()
 
