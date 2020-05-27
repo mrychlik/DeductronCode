@@ -14,6 +14,7 @@ tf.keras.backend.clear_session()  # For easy reset of notebook state.
 
 from tensorflow.keras.layers import Input
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Softmax
 from tensorflow.keras.layers import concatenate
 from keras.utils import plot_model
 
@@ -25,9 +26,9 @@ n_samples = tiny_inputs.shape[0]
 input_len = tiny_inputs.shape[1];
 
 inputs = Input(shape=(input_len,))
-left  = Dense(units = n_memory,activation="sigmoid",use_bias=True)(inputs)
-right = Dense(units = n_memory,activation="sigmoid",use_bias=True)(inputs)
-prod = tf.multiply(left, right) #Hadamard product
+left   = Dense(units = n_memory,activation="sigmoid",use_bias=True)(inputs)
+right  = Dense(units = n_memory,activation="sigmoid",use_bias=True)(inputs)
+prod   = tf.multiply(left, right) #Hadamard product
 n_memory = left.shape[-1]
 u = tf.zeros([n_memory])
 zlst = [u]
@@ -36,7 +37,23 @@ for t in range(1,n_samples):
     zlst.append(u)
     z = tf.stack(zlst,axis=0)
 logit = Dense(units = n_classes, activation="linear",use_bias=True)(z)
+y_pred = Softmax()(logit)
 
-model = tf.keras.Model(inputs = inputs, outputs = logit)
+# tensor (samples, 1) containing the sequence length for each batch item in y_pred. 
+input_length = n_samples
+# tensor (samples, 1) containing the sequence length for each batch item in y_true. 
+label_length = n_samples
+
+loss = tf.keras.backend.ctc_batch_cost(
+    y_true = tiny_targets,
+    y_pred = y_pred,
+    input_length = input_length,
+    label_length = label_length
+)
+
+
+model = tf.keras.Model(inputs = inputs, outputs = loss)
 model.summary()
 
+#Does not work?
+#plot_model(model, to_file='model.png')
