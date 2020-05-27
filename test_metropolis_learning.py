@@ -13,14 +13,16 @@ from data import small_inputs, small_targets
 from deductron import QuantizedDeductron
 import datetime
 
-def _annealing_test(inputs, targets):
-    # beta_incr and seed have been optimized for fast training success
-    net, loss = QuantizedDeductron.train(3, inputs, targets, beta_incr = 1e-4, seed = 1)
+def _annealing_test(inputs, targets, beta_incr = 1e-4, seed = 1):
+
+    net, loss = QuantizedDeductron.train(3, inputs, targets,
+                                         beta_incr = beta_incr, seed = seed)
     print(str(net))
     return (net, loss)
 
 def test_learning():
-    _annealing_test(small_inputs, small_targets)
+    # beta_incr and seed have been optimized for fast training success on small_data
+    _annealing_test(small_inputs, small_targets, beta_incr = 1e-4, seed = 1)
 
 if __name__ == '__main__':
     run_name = datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
