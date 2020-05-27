@@ -40,7 +40,7 @@ def test_tf_training_small_data():
     _test_template(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
 
 
-def test_tf_training_big_data():
+def _test_tf_training_big_data():
     inputs  = data.comb_inputs
     targets = data.comb_targets
     n_memory   = 4             # Num. of memory cells
@@ -56,5 +56,5 @@ if __name__ == '__main__':
     #
     # NOTE: Run this only if you have quite a bit of time...
     #
-    #test_tf_training_big_data()
+    #_test_tf_training_big_data()
 
