@@ -53,5 +53,5 @@ def test_tf_training_big_data():
 if __name__ == '__main__':
     test_tf_training_tiny_data()
     test_tf_training_small_data()
-    test_tf_training_big_data()
+    #test_tf_training_big_data()
 
