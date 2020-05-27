@@ -295,12 +295,13 @@ class QuantizedDeductron(DeductronBase):
         return self(inputs).loss(targets)
             
     @staticmethod
-    def train(n_memory, inputs, targets, beta_incr = 0.001):
+    def train(n_memory, inputs, targets, beta_incr = 0.001, seed = 666):
         '''Implements deductron training by simulated annealing.'''
         n_in, _ = inputs.shape
         n_out, _ = targets.shape        
 
         print("**** Simulated annealing ****")
+        random.seed(seed)
         net = QuantizedDeductron(n_in, n_memory, n_out, beta = 0)
         E0 = net.run_loss(inputs, targets)
         net_best = copy.deepcopy(net)
