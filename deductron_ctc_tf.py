@@ -74,8 +74,7 @@ class DeductronTf(DeductronBase):
             B2 = tf.get_variable("B2", shape = [output_len, 1],
                                  dtype = tf.float32)
             out = tf.matmul(W2, z ) + B2
-            loss = out[0][0]
-            loss1 = loss
+
             Y = tf.nn.softmax(out)
 
             lPrime = (2*len(label)+1)*[blank]
