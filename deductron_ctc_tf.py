@@ -169,6 +169,7 @@ class DeductronTf(DeductronBase):
 
 
 if __name__ == '__main__':
+    tf.reset_default_graph();
     import data
 
     inputs  = data.tiny_inputs
