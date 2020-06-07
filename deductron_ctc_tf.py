@@ -102,15 +102,21 @@ class DeductronTf(DeductronBase):
                 print("t=",t)
                 for s in range(1,len(lPrime)):
                     print("s=",s)
-                    print("alpha=",alpha)
                     if s == 1: 
+                        assert(alpha[t-1][s] != None)
                         tmp = alpha[t-1][s];
                     elif lPrime[s] == blank or s == 2 or lPrime[s] == lPrime[s-2]:
+                        assert(alpha[t-1][s] != None)
+                        assert(alpha[t-1][s-1] != None)
                         tmp = alpha[t-1][s] + alpha[t-1][s-1]
                     else:
+                        assert(alpha[t-1][s] != None)
+                        assert(alpha[t-1][s-1] != None)
+                        assert(alpha[t-1][s-2] != None)
                         tmp = alpha[t-1][s] + alpha[t-1][s-1] + alpha[t-1][s-2]
                     alpha[t][s] = Y[lPrime[s], t] * tmp;
 
+            print("alpha=",alpha)
             p = alpha[tsteps-1][len(lPrime)-1]
             if len(lPrime) > 1:
                 p = p + alpha[tsteps-1][len(lPrime)-2]
