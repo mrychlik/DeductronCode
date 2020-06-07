@@ -99,7 +99,10 @@ class DeductronTf(DeductronBase):
             alpha[0][1] = Y[lPrime[1], 0]; # Note label[0]==lPrime[1]
 
             for t in range(1,tsteps):
+                print("t=",t)
                 for s in range(1,len(lPrime)):
+                    print("s=",s)
+                    print("alpha=",alpha)
                     if s == 1: 
                         tmp = alpha[t-1][s];
                     elif lPrime[s] == blank or s == 2 or lPrime[s] == lPrime[s-2]:
