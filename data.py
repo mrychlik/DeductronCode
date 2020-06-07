@@ -1197,6 +1197,7 @@ tiny_targets = np.array([
     [0, 0],
     ]).transpose()
 
+tiny_labels = 'XO'
 
 def img_to_input(x):
     """Converts W-language image x to a list of 2-column windows."""
