@@ -24,13 +24,18 @@ import io
 from datetime import datetime
 from deductron import DeductronBase
 
+def _numerical_label(label):
+    alphabet = list(np.unique(label))
+    return [alphabet.index(label[j]) for j in range(len(label))], alphabet
+
+
 class DeductronTf(DeductronBase):
     '''Deductron implementing Tensorflow training.'''
     
     def __init__(self):
         super(DeductronTf, self).__init__(beta = 1, shift = 0)    
 
-    def train(self, inputs, targets,
+    def train(self, inputs, targets,labels,
               n_memory = 3,
               n_steps = 60000,
               loss_threshold = 0.01,
@@ -77,34 +82,35 @@ class DeductronTf(DeductronBase):
 
             Y = tf.nn.softmax(out)
 
-            lPrime = (2*len(label)+1)*[blank]
-            lPrime[1::2] = label
-
             label,alphabet = _numerical_label(list(labels))
             blank = len(alphabet)
-            lPrime = _lPrime(label,blank)
+
+            lPrime = (2*len(label)+1)*[blank]
+            lPrime[1::2] = label
             tsteps = Y.shape[1]
 
             S = type('S',(), {"blank":2, "tsteps":tsteps, "label":label})
 
-            alpha = np.zeros([S.tsteps,len(lPrime)])
-            alpha[0,0] = Y[S.blank, 0];
-            alpha[0,1] = Y[lPrime[1], 0]; # Note label[0]==lPrime[1]
+            alpha = tsteps * [None]
+            for j in range(tsteps):
+                alpha[j] = len(lPrime) * [None] 
 
-            for t in range(1,S.tsteps):
+            alpha[0][0] = Y[blank, 0];
+            alpha[0][1] = Y[lPrime[1], 0]; # Note label[0]==lPrime[1]
+
+            for t in range(1,tsteps):
                 for s in range(1,len(lPrime)):
                     if s == 1: 
-                        tmp = alpha[t-1,s];
-                    elif lPrime[s] == S.blank or s == 2 or lPrime[s] == lPrime[s-2]:
-                        tmp = alpha[t-1, s] + alpha[t-1,s-1]
+                        tmp = alpha[t-1][s];
+                    elif lPrime[s] == blank or s == 2 or lPrime[s] == lPrime[s-2]:
+                        tmp = alpha[t-1][s] + alpha[t-1][s-1]
                     else:
-                        tmp = alpha[t-1, s] + alpha[t-1,s-1] + alpha[t-1, s-2]
-                    alpha[t,s] = Y[lPrime[s], t] * tmp;
+                        tmp = alpha[t-1][s] + alpha[t-1][s-1] + alpha[t-1][s-2]
+                    alpha[t][s] = Y[lPrime[s], t] * tmp;
 
-            p = alpha[S.tsteps-1,len(lPrime)-1]
+            p = alpha[tsteps-1][len(lPrime)-1]
             if len(lPrime) > 1:
-                p = p + alpha[S.tsteps-1,len(lPrime)-2]
-                print("p=",p)
+                p = p + alpha[tsteps-1][len(lPrime)-2]
             loss = -np.log(p)
 
 
@@ -173,6 +179,7 @@ if __name__ == '__main__':
 
     inputs  = data.tiny_inputs
     targets = data.tiny_targets
+    labels  = data.tiny_labels
 
     n_memory   = 3            # Num. of memory cells
     n_steps = 5000            # Num. epochs
@@ -180,7 +187,9 @@ if __name__ == '__main__':
     learning_rate_adam = 0.01 # Initial learning rate for Adam optimizer
 
     ded = DeductronTf();
-    ret = ded.train(inputs,targets,n_memory,n_steps,loss_threshold, learning_rate_adam)
+    ret = ded.train(inputs,targets,labels,
+                    n_memory, n_steps, loss_threshold,
+                    learning_rate_adam)
     #outputs = np.round(ret[0],0)
     #err_count = np.sum(np.abs(outputs-targets))
     #print("Error count: {:3.0f}".format(err_count))
