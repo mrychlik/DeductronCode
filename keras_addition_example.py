@@ -13,8 +13,9 @@
 # We don't seed the random number generator, so the results may vary.
 # Generally, accuracy is expected to reach 99.5%.
 #
-# THE ORIGINAL COPYRIGHT NOTICE:
+# THE ORIGINAL SOURCE AND COPYRIGHT NOTICE:
 # (https://github.com/keras-team/keras-io/blob/master/examples/nlp/addition_rnn.py)
+#
 # This work is a derivative of the LSTM implementation by the Keras
 # team. Contributions from those contributors copyright (c) 2015-2019 those individuals.
 #
