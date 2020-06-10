@@ -162,7 +162,7 @@ model.add(layers.TimeDistributed(layers.Dense(len(chars), activation='softmax'))
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 model.summary()
 
-epochs = 48
+epochs = 30
 batch_size = 32
 
 for epoch in range(epochs):
