@@ -7,9 +7,13 @@
 # Copying:  (C) Marek Rychlik, 2020. All rights reserved.
 # 
 #----------------------------------------------------------------
-# Modified from Keras documentation.
+# Modified from Keras documentation. Original copyright notice:
 # Contains a network architecture based on deductron
 # which replaces LSTM in the original Keras example.
+#
+# This work is a derivative of the LSTM implementation by the Keras
+# team. Contributions from those contributors copyright (c) 2015-2019 those individuals.
+#
 #
 import keras
 from keras import layers
