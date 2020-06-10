@@ -7,12 +7,13 @@
 # Copying:  (C) Marek Rychlik, 2020. All rights reserved.
 # 
 #----------------------------------------------------------------
-# Modified from Keras documentation. Original copyright notice:
+# Modified from Keras documentation.
 # Contains a network architecture based on deductron
 # which replaces LSTM in the original Keras example.
 # We don't seed the random number generator, so the results may vary.
 # Generally, accuracy is expected to reach 99.5%.
 #
+# THE ORIGINAL COPYRIGHT NOTICE:
 # This work is a derivative of the LSTM implementation by the Keras
 # team. Contributions from those contributors copyright (c) 2015-2019 those individuals.
 #
