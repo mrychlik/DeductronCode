@@ -38,7 +38,7 @@ learning progress.
 The file [deductron_keras.py](./deductron_keras.py) provides a
 deductron implementation on top of the Keras API.  This implementation
 is used in a complete example in the
-file[keras_addition_example.py](./keras_addition_example.py)
+file [keras_addition_example.py](./keras_addition_example.py)
 originally implemented by the Keras team utilizing LSTM.
 The problem being solved in this example is that of learning addition of multi-digit
 integers by example. To run this example, do this:
