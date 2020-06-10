@@ -14,6 +14,7 @@
 # Generally, accuracy is expected to reach 99.5%.
 #
 # THE ORIGINAL COPYRIGHT NOTICE:
+#
 # This work is a derivative of the LSTM implementation by the Keras
 # team. Contributions from those contributors copyright (c) 2015-2019 those individuals.
 #
