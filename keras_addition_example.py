@@ -7,7 +7,10 @@
 # Copying:  (C) Marek Rychlik, 2020. All rights reserved.
 # 
 #----------------------------------------------------------------
-# 
+# Modified from Keras documentation.
+# Contains a network architecture based on deductron
+# which replaces LSTM in the original Keras example.
+#
 import keras
 from keras import layers
 import numpy as np
