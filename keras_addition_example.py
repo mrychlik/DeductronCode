@@ -14,7 +14,8 @@
 # Generally, accuracy is expected to reach 99.5%.
 #
 # THE ORIGINAL SOURCE AND COPYRIGHT NOTICE:
-# (https://github.com/keras-team/keras-io/blob/master/examples/nlp/addition_rnn.py)
+# (https://github.com/keras-team/keras-io/blob/master/examples/nlp/addition_rnn.py,
+# https://keras.io/examples/nlp/addition_rnn/)
 #
 # This work is a derivative of the LSTM implementation by the Keras
 # team. Contributions from those contributors copyright (c) 2015-2019 those individuals.
