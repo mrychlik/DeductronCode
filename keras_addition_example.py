@@ -18,7 +18,7 @@
 import keras
 from keras import layers
 import numpy as np
-import deductron
+import deductron_keras
 
 # Parameters for the model and dataset.
 TRAINING_SIZE = 50000
