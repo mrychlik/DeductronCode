@@ -5,6 +5,8 @@ along with an advanced implementation utilizing Tensorflow and Keras.
 This code is lightly tested should not be used in any "production" system without
 further testing.
 
+## Installation and running demo/test programs
+
 To run several programs exercising the package functionality, all one
 needs to do is run the script:
 
@@ -14,7 +16,7 @@ Alternatively, one can test the code by running pytest, e.g.:
 
 `pytest-3.7`
 
-# Pure Python Deductron implementation
+## Pure Python Deductron implementation
 In this folder one finds a pure Python implementation of the Deductron RNN.
 The learning scheme is discrete state space optimization.
 The particular optimization scheme is Metropolis-Hastings.
@@ -32,6 +34,15 @@ learning progress.
 
 ![Tensorboard screenshot](./images/TensorboardScreenshot.png)
 
+## Implementation using Keras
+The file (./deductron_keras.py) implements deductron on top of the Keras API.
+This implementation is used in a complete example implemented by the
+Keras team, of learning addition of multi-digit integers from examples. To run this
+example, do this:
+
+`python3 keras_addition_example.py`
+
+You need both Tensorflow and Keras to be installed.
 
 # Tensorflow version 2 supported
 The early versions of this code were written for Tensorflow v.1 and they can
