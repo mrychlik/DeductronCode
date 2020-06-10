@@ -1,3 +1,13 @@
+#----------------------------------------------------------------
+# File:     keras_addition_example.py
+#----------------------------------------------------------------
+#
+# Author:   Marek Rychlik (rychlik@email.arizona.edu)
+# Date:     Wed Jun 10 11:20:43 2020
+# Copying:  (C) Marek Rychlik, 2020. All rights reserved.
+# 
+#----------------------------------------------------------------
+# 
 import keras
 from keras import layers
 import numpy as np
