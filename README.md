@@ -2,7 +2,8 @@
 Computer codes accompanying the paper "Deductron - A Recurrent Neural Network".
 We provided a minimalistic implementation in pure Python,
 along with an advanced implementation utilizing Tensorflow and Keras.
-This code should not be used in any "production" system.
+This code is lightly tested should not be used in any "production" system without
+further testing.
 
 To run several programs exercising the package functionality, all one
 needs to do is run the script:
