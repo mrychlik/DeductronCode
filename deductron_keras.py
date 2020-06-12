@@ -138,7 +138,8 @@ class Deductron(RNN):
     '''
     Layer class for the deductron recurrent neural network.
     '''
-    def __init__(self, units, output_size,
+    def __init__(self, units,
+                 output_size=None,
                  activation='sigmoid',
                  use_bias=True,
                  kernel_initializer='glorot_uniform',
@@ -165,24 +166,25 @@ class Deductron(RNN):
             dropout = 0.
             recurrent_dropout = 0.
 
-        cell = DeductronCell(units, output_size,
-                        activation=activation,
-                        use_bias=use_bias,
-                        kernel_initializer=kernel_initializer,
-                        unit_forget_bias=unit_forget_bias,
-                        bias_initializer=bias_initializer,
-                        kernel_regularizer=kernel_regularizer,
-                        bias_regularizer=bias_regularizer,
-                        kernel_constraint=kernel_constraint,
-                        bias_constraint=bias_constraint,
-                        dropout=dropout)
+        cell = DeductronCell(units,
+                             output_size=None,
+                             activation=activation,
+                             use_bias=use_bias,
+                             kernel_initializer=kernel_initializer,
+                             unit_forget_bias=unit_forget_bias,
+                             bias_initializer=bias_initializer,
+                             kernel_regularizer=kernel_regularizer,
+                             bias_regularizer=bias_regularizer,
+                             kernel_constraint=kernel_constraint,
+                             bias_constraint=bias_constraint,
+                             dropout=dropout)
         super(Deductron, self).__init__(cell,
-                                   return_sequences=return_sequences,
-                                   return_state=return_state,
-                                   go_backwards=go_backwards,
-                                   stateful=stateful,
-                                   unroll=unroll,
-                                   **kwargs)
+                                        return_sequences=return_sequences,
+                                        return_state=return_state,
+                                        go_backwards=go_backwards,
+                                        stateful=stateful,
+                                        unroll=unroll,
+                                        **kwargs)
         self.activity_regularizer = regularizers.get(activity_regularizer)
 
     def call(self, inputs, mask=None, training=None, initial_state=None):
