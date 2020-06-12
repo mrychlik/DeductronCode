@@ -167,7 +167,7 @@ class Deductron(RNN):
             recurrent_dropout = 0.
 
         cell = DeductronCell(units,
-                             output_size=None,
+                             output_size=output_size,
                              activation=activation,
                              use_bias=use_bias,
                              kernel_initializer=kernel_initializer,
