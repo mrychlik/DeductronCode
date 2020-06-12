@@ -74,7 +74,6 @@ class DeductronCell(Layer):
                  **kwargs):
         super(DeductronCell, self).__init__(**kwargs)
         self.units = units
-        self.output_size = output_size
         self.activation = activations.get(activation)
         self.use_bias = use_bias
 
@@ -90,7 +89,7 @@ class DeductronCell(Layer):
 
         self.dropout = min(1., max(0., dropout))
         self.state_size = self.units
-        self.output_size = self.units
+        self.output_size = output_size
         self._dropout_mask = None
 
     def build(self, input_shape):
