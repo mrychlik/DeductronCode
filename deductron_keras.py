@@ -60,7 +60,8 @@ class DeductronCell(Layer):
             Fraction of the units to drop for
             the linear transformation of the inputs. (not currently implemented!!)
     '''
-    def __init__(self, units, output_size,
+    def __init__(self, units,
+                 output_size=None,
                  activation='sigmoid',
                  use_bias=True,
                  kernel_initializer='glorot_uniform',
@@ -89,6 +90,8 @@ class DeductronCell(Layer):
 
         self.dropout = min(1., max(0., dropout))
         self.state_size = self.units
+        if not output_size:
+            output_size = self.units
         self.output_size = output_size
         self._dropout_mask = None
 
