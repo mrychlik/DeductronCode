@@ -66,7 +66,6 @@ class DeductronCell(Layer):
                  use_bias=True,
                  kernel_initializer='glorot_uniform',
                  bias_initializer='zeros',
-                 unit_forget_bias=True,
                  kernel_regularizer=None,
                  bias_regularizer=None,
                  kernel_constraint=None,
@@ -80,7 +79,6 @@ class DeductronCell(Layer):
 
         self.kernel_initializer = initializers.get(kernel_initializer)
         self.bias_initializer = initializers.get(bias_initializer)
-        self.unit_forget_bias = unit_forget_bias
 
         self.kernel_regularizer = regularizers.get(kernel_regularizer)
         self.bias_regularizer = regularizers.get(bias_regularizer)
@@ -89,10 +87,11 @@ class DeductronCell(Layer):
         self.bias_constraint = constraints.get(bias_constraint)
 
         self.dropout = min(1., max(0., dropout))
-        self.state_size = self.units
         if not output_size:
             output_size = self.units
         self.output_size = output_size
+        self.state_size = self.units
+
         self._dropout_mask = None
 
     def build(self, input_shape):
@@ -144,7 +143,6 @@ class Deductron(RNN):
                  use_bias=True,
                  kernel_initializer='glorot_uniform',
                  bias_initializer='zeros',
-                 unit_forget_bias=True,
                  kernel_regularizer=None,
                  bias_regularizer=None,
                  activity_regularizer=None,
@@ -171,7 +169,6 @@ class Deductron(RNN):
                              activation=activation,
                              use_bias=use_bias,
                              kernel_initializer=kernel_initializer,
-                             unit_forget_bias=unit_forget_bias,
                              bias_initializer=bias_initializer,
                              kernel_regularizer=kernel_regularizer,
                              bias_regularizer=bias_regularizer,
