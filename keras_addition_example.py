@@ -142,19 +142,22 @@ model = keras.Sequential()
 
 UNITS   = 64
 OUTPUTS = 128
-model.add(deductron.Deductron(UNITS, OUTPUTS,
-                              activation = clipped_relu,
+model.add(deductron.Deductron(UNITS,
+                              output_size=OUTPUTS,
+                              activation=clipped_relu,
                               return_sequences=True,
                               input_shape=(MAXLEN, len(chars))))
 
-model.add(deductron.Deductron(UNITS, OUTPUTS,
-                              activation = clipped_relu,
+model.add(deductron.Deductron(UNITS,
+                              output_size=OUTPUTS,
+                              activation=clipped_relu,
                               return_sequences=False))
 
 model.add(layers.RepeatVector(DIGITS + 1))
 
-model.add(deductron.Deductron(UNITS, OUTPUTS,
-                              activation = clipped_relu,
+model.add(deductron.Deductron(UNITS,
+                              output_size=OUTPUTS,
+                              activation=clipped_relu,
                               return_sequences=True))
 
 model.add(layers.TimeDistributed(layers.Dense(len(chars), activation='softmax')))
