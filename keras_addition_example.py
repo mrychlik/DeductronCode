@@ -140,7 +140,7 @@ split_at = len(x) - len(x) // 10
 
 model = keras.Sequential()
 
-UNITS   = 64
+UNITS   = 96
 OUTPUTS = 128
 model.add(deductron.Deductron(UNITS,
                               output_size=OUTPUTS,
