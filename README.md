@@ -1,5 +1,6 @@
 # DeductronCode
-Computer codes accompanying the paper "Deductron - A Recurrent Neural Network".
+Computer codes accompanying the now published paper 
+["Deductron - A Recurrent Neural Network"](https://www.frontiersin.org/articles/10.3389/fams.2020.00029/full).
 We provided a minimalistic implementation in pure Python,
 along with an advanced implementation utilizing Tensorflow and Keras.
 This code is lightly tested should not be used in any "production" system without
